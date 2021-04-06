@@ -10,23 +10,29 @@
 <body>
   <form id="form">
     <input type="text" id="titleInput" placeholder="Title" class="input"/> <br>
-    <input
-      type="text"
-      id="authorInput"
-      placeholder="Author"
-      class="input"
-    />
-    <input
-      type="number"
-      id="pagesInput"
-      placeholder="Pages"
-      class="input"
-    /> <br>
-    <label>
-      <input type="checkbox" id="readCheckbox" />
-      Read?
-    </label>
-    <input type="button" value="Submit" onclick="addBookToLibrary()"/>
+    <input type="text" id="descriptionInput" placeholder="Description" class="input"/> <br>
+    <input type="date" id="dateInput" placeholder="Due Date" class="input"/> <br>
+
+    <label for="priority">Priority:</label>
+    <select name="priority" id="priorityInput">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select> <br>
+
+    <label for="priority">Project:</label>
+    <select name="project" id="projectInput">
+      <option value="None">None</option>
+    </select> <br>
+
+    <input type="button" id="submitInput" value="Submit"/>
+  </form>
+  <br>
+  <form id="project-form">
+    <input type="text" id="projectTitleInput" placeholder="Title" class="input"/> <br>
+    <input type="button" id="projectSubmitInput" value="Submit"/>
   </form>
   <script src="bundle.js"></script>
 </body>
