@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Asset Management</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form id="form">
+    <input type="text" id="titleInput" placeholder="Title" class="input"/> <br>
+    <input
+      type="text"
+      id="authorInput"
+      placeholder="Author"
+      class="input"
+    />
+    <input
+      type="number"
+      id="pagesInput"
+      placeholder="Pages"
+      class="input"
+    /> <br>
+    <label>
+      <input type="checkbox" id="readCheckbox" />
+      Read?
+    </label>
+    <input type="button" value="Submit" onclick="addBookToLibrary()"/>
+  </form>
+  <script src="bundle.js"></script>
+</body>
+</html>

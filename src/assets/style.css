@@ -1,0 +1,10 @@
+@font-face {
+  font-family: 'MyFont';
+  src: url('../fonts/Raleway-Regular.ttf');
+  font-weight: 600;
+  font-style: normal;
+}
+
+.hello {
+  font-family: 'MyFont';
+}
