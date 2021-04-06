@@ -38,3 +38,9 @@ const createProjectButton = (project) => {
   projectList.append(projectLink)
 }
 
+projectList.addEventListener('click', (e) => {
+  let filteredItems = toDoItems.filter(item => {
+    return item.project === e.target.dataset.project;
+  })
+  console.log(filteredItems)
+})
