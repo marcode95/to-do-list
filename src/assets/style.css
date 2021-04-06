@@ -5,11 +5,12 @@
   font-style: normal;
 }
 
-.hello {
-  font-family: 'MyFont';
+.display-none {
+  display: none;
 }
 
-#project-list {
-  min-height: 100px;
-  border: 1px solid red;
+.display-inline {
+  display: inline;
 }
+
+/* startpage */

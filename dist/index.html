@@ -8,34 +8,38 @@
   <title>Document</title>
 </head>
 <body>
-  <form id="form">
-    <input type="text" id="titleInput" placeholder="Title" class="input"/> <br>
-    <input type="text" id="descriptionInput" placeholder="Description" class="input"/> <br>
-    <input type="date" id="dateInput" placeholder="Due Date" class="input"/> <br>
+  <button id="navigation-button">Navigation</button>
+  <button id="startpage-button" class="display-none">Startpage</button>
+  <section id="startpage">
+    <form id="form">
+      <input type="text" id="titleInput" placeholder="Title" class="input"/> <br>
+      <input type="text" id="descriptionInput" placeholder="Description" class="input"/> <br>
+      <input type="date" id="dateInput" placeholder="Due Date" class="input"/> <br>
 
-    <label for="priority">Priority:</label>
-    <select name="priority" id="priorityInput">
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-    </select> <br>
+      <label for="priority">Priority:</label>
+      <select name="priority" id="priorityInput">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select> <br>
 
-    <label for="priority">Project:</label>
-    <select name="project" id="projectInput">
-      <option value="None">None</option>
-    </select> <br>
+      <label for="priority">Project:</label>
+      <select name="project" id="projectInput">
+        <option value="None">None</option>
+      </select> <br>
 
-    <input type="button" id="submitInput" value="Submit"/>
-  </form>
+      <input type="button" id="submitInput" value="Submit"/>
+    </form>
+    <br>
+    <form id="project-form">
+      <input type="text" id="projectTitleInput" placeholder="Title" class="input"/> <br>
+      <input type="button" id="projectSubmitInput" value="Submit"/>
+    </form>
+  </section>
   <br>
-  <form id="project-form">
-    <input type="text" id="projectTitleInput" placeholder="Title" class="input"/> <br>
-    <input type="button" id="projectSubmitInput" value="Submit"/>
-  </form>
-  <br>
-  
+
   <div id="project-list"></div>
 
   <script src="bundle.js"></script>

@@ -1,5 +1,26 @@
 import '../assets/style.css';
 
+const navigationButton = document.getElementById('navigation-button')
+const startpage = document.getElementById('startpage')
+const startpageButton = document.getElementById('startpage-button')
+navigationButton.addEventListener('click', () => {
+  startpage.classList.remove('display-inline') 
+  startpage.classList.add('display-none')
+  navigationButton.classList.remove('display-inline')
+  navigationButton.classList.add('display-none')
+  startpageButton.classList.remove('display-none')
+  startpageButton.classList.add('display-inline')
+});
+
+startpageButton.addEventListener('click', () => {
+  startpage.classList.remove('display-none')
+  startpage.classList.add('display-inline')
+  startpageButton.classList.remove('display-inline')
+  startpageButton.classList.add('display-none')
+  navigationButton.classList.remove('display-none')
+  navigationButton.classList.add('display-inline')
+});
+
 const toDoItems = []
 
 const toDoItem = (title, description, date, priority, project) => {
