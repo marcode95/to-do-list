@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Asset Management</title>
+  <title>To-Do's</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
@@ -10,6 +10,7 @@
 <body>
   <button id="navigation-button">Navigation</button>
   <button id="startpage-button" class="display-none">Startpage</button>
+
   <section id="startpage">
     <form id="form">
       <input type="text" id="titleInput" placeholder="Title" class="input"/> <br>
@@ -34,14 +35,17 @@
     </form>
     <br>
     <form id="project-form">
+      <label for="priority">New Project:</label> <br>
       <input type="text" id="projectTitleInput" placeholder="Title" class="input"/> <br>
       <input type="button" id="projectSubmitInput" value="Submit"/>
     </form>
   </section>
-  <br>
 
-  <div id="project-list"></div>
-
+  <section id="navigation" class="display-none">
+    <br>
+    <button id="show-all-todos">All To-Do's:</button>
+    <div id="project-list">Projects:<br></div>
+  </section>
   <script src="bundle.js"></script>
 </body>
 </html>
