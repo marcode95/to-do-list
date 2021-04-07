@@ -1,29 +1,40 @@
 import '../assets/style.css';
 
+const allSections = document.querySelectorAll('section');
+
 const navigationButton = document.getElementById('navigation-button')
 const startpageButton = document.getElementById('startpage-button')
+
 const startpage = document.getElementById('startpage')
 const navigation = document.getElementById('navigation')
+const project = document.getElementById('project')
+
+const closeAllOtherSectionsExceptFor = (currentSection) => {
+  let otherSections = Array.from(allSections).filter(item => {
+    return item !== currentSection;
+  })
+  otherSections.forEach(element => {
+  element.classList.remove('display-inline');
+  element.classList.add('display-none');
+  currentSection.classList.remove('display-none');
+  currentSection.classList.add('display-inline');
+})}
+
+const switchButtonsFromTo = (from, to) => {
+  from.classList.remove('display-inline')
+  from.classList.add('display-none')
+  to.classList.remove('display-none')
+  to.classList.add('display-inline')  
+}
+
 navigationButton.addEventListener('click', () => {
-  startpage.classList.remove('display-inline') 
-  startpage.classList.add('display-none')
-  navigation.classList.remove('display-none') 
-  navigation.classList.add('display-inline')
-  navigationButton.classList.remove('display-inline')
-  navigationButton.classList.add('display-none')
-  startpageButton.classList.remove('display-none')
-  startpageButton.classList.add('display-inline')
+  closeAllOtherSectionsExceptFor(navigation);
+  switchButtonsFromTo(navigationButton, startpageButton)
 });
 
 startpageButton.addEventListener('click', () => {
-  startpage.classList.remove('display-none')
-  startpage.classList.add('display-inline')
-  navigation.classList.remove('display-inline') 
-  navigation.classList.add('display-none')
-  startpageButton.classList.remove('display-inline')
-  startpageButton.classList.add('display-none')
-  navigationButton.classList.remove('display-none')
-  navigationButton.classList.add('display-inline')
+  closeAllOtherSectionsExceptFor(startpage);
+  switchButtonsFromTo(startpageButton, navigationButton)
 });
 
 const toDoItems = []
@@ -64,12 +75,33 @@ const createProjectButton = (project) => {
   projectList.append(projectLink)
 }
 
+
+const projectPage = document.getElementById('project-page')
+
 projectList.addEventListener('click', (e) => {
   let filteredItems = toDoItems.filter(item => {
     return item.project === e.target.dataset.project;
   })
-  console.log(filteredItems)
+  closeAllOtherSectionsExceptFor(project)
+  switchButtonsFromTo(navigationButton, startpageButton)
+  const filteredItemsContainer = document.createElement('div');
+  projectPage.innerHTML = ''
+  projectPage.append(filteredItemsContainer);
+  appendElements(filteredItems, filteredItemsContainer);
 });
+
+const appendElements = (arr, container) => {
+  for (var i=0; i < arr.length; i++) {
+    const singleTodoItem = document.createElement('div');
+    const singleTodoItemTitle = document.createElement('p');
+    const singleTodoItemDate = document.createElement('p')
+    const title = arr[i].title;
+    const date = arr[i].date;
+    singleTodoItemTitle.textContent = title + ' ' + date;
+    singleTodoItem.append(singleTodoItemTitle);
+    container.append(singleTodoItem);
+  }
+}
 
 const showAllTodosButton = document.getElementById('show-all-todos');
 showAllTodosButton.addEventListener('click', (e) => {
