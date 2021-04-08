@@ -91,9 +91,6 @@ projectList.addEventListener('click', (e) => {
 const appendElements = (arr, container) => {
   for (var i=0; i < arr.length; i++) {
     const singleTodoItem = document.createElement('div');
-    singleTodoItem.setAttribute('data-id', i);
-    singleTodoItem.setAttribute('data-project', arr[i].project);
-    singleTodoItem.classList.add('singleTodoItem');
     const singleTodoItemTitle = document.createElement('p');
     const singleTodoItemDate = document.createElement('p')
     const singleTodoItemDescription = document.createElement('p')
@@ -118,13 +115,9 @@ const appendElements = (arr, container) => {
     container.addEventListener('click', (e) => {
       let allItemDescriptionsNode = document.querySelectorAll('p.itemDescription');
       let allItemDescriptions = Array.from(allItemDescriptionsNode);
-      console.log(allItemDescriptions);
       for (let i = 0; i < allItemDescriptions.length; i++) {
         let descriptionId = allItemDescriptions[i].dataset.id
-        console.log(descriptionId)
-        console.log(e.target.dataset.id)
         if (descriptionId === e.target.dataset.id) {
-          console.log('this works')
           allItemDescriptions[i].classList.remove('display-none');
           allItemDescriptions[i].classList.add('display-inline');
         } 
