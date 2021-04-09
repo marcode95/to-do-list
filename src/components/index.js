@@ -150,6 +150,11 @@ const appendElements = (arr, container) => {
             container.removeChild(allSingleTodoItems[i]);
           }
         } 
+        for (let i = 0; i < todoItems.length; i++) {
+          if (todoItems[i] === arr[e.target.dataset.id]) {
+            todoItems.splice(i, 1);
+          }
+        } 
       }
     })
 
