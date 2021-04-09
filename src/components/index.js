@@ -7,8 +7,21 @@ const startpageButton = document.getElementById('startpage-button')
 
 const startpage = document.getElementById('startpage')
 const navigation = document.getElementById('navigation')
-const project = document.getElementById('project')
 const todos = document.getElementById('todos')
+const future = document.getElementById('future')
+const project = document.getElementById('project')
+
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+1; 
+var yyyy = today.getFullYear();
+if (dd < 10) {
+  dd='0'+dd;
+} 
+if (mm < 10) {
+    mm='0'+mm;
+} 
+today = yyyy+'-'+mm+'-'+dd;
 
 const closeAllOtherSectionsExceptFor = (currentSection) => {
   let otherSections = Array.from(allSections).filter(item => {
@@ -167,6 +180,21 @@ showAllTodosButton.addEventListener('click', (e) => {
   todosPage.innerHTML = '';
   closeAllOtherSectionsExceptFor(todos);
   appendElements(todoItems, todosPage);
+});
+
+
+
+const showFutureTodosButton = document.getElementById('future-todos');
+const futurePage = document.getElementById('future-page');
+showFutureTodosButton.addEventListener('click', (e) => {
+  console.log('navbuttonworks')
+  futurePage.innerHTML = '';
+  closeAllOtherSectionsExceptFor(future);
+  const futureItems = todoItems.filter(item => {
+    return item.date > today;
+  })
+  console.log(futureItems)
+  appendElements(futureItems, futurePage);
 });
 
 const sortSubmitButton = document.getElementById('sort-submit-input');
