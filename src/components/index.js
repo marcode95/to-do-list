@@ -85,7 +85,9 @@ projectList.addEventListener('click', (e) => {
   })
   closeAllOtherSectionsExceptFor(project)
   switchButtonsFromTo(navigationButton, startpageButton)
-  projectPage.innerHTML = ''
+  projectPage.innerHTML = '';
+  projectPage.removeAttribute('data-project');
+  projectPage.setAttribute('data-project', e.target.dataset.project)
   appendElements(filteredItems, projectPage);
 });
 
@@ -141,12 +143,21 @@ sortSubmitButton.addEventListener('click', (e) => {
   const category = document.getElementById('sortCategoryInput').value;
   const order = document.getElementById('sortOrderInput').value;
   const categoryOrder = category+order
-  console.log('bla')
-  console.log(categoryOrder)
   const todoItemsSorted = sortBy(todoItems, categoryOrder);
-  console.log('blabla')
-  console.log(todoItemsSorted)
   appendElements(todoItemsSorted, todosPage);
+})
+
+const projectSortSubmitButton = document.getElementById('project-sort-submit-input');
+projectSortSubmitButton.addEventListener('click', (e) => {
+  projectPage.innerHTML = '';
+  const category = document.getElementById('projectSortCategoryInput').value;
+  const order = document.getElementById('projectSortOrderInput').value;
+  const categoryOrder = category+order
+  let filteredItems = todoItems.filter(item => {
+    return item.project === projectPage.dataset.project;
+  })
+  const projectItemsSorted = sortBy(filteredItems, categoryOrder);
+  appendElements(projectItemsSorted, projectPage);
 })
 
 const sortBy = (arr, categoryOrder) => {
