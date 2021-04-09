@@ -120,13 +120,27 @@ const appendElements = (arr, container) => {
     singleTodoItemDate.textContent = date;
     singleTodoItem.append(singleTodoItemDate);
 
+
+    const singleTodoItemDescriptionContainer = document.createElement('div')
+    singleTodoItemDescriptionContainer.classList.add('display-none')
+    singleTodoItemDescriptionContainer.classList.add('itemDescription')
+    singleTodoItemDescriptionContainer.setAttribute('data-id', i);
+
     const singleTodoItemDescription = document.createElement('p')
     singleTodoItemDescription.classList.add('itemDescription')
-    singleTodoItemDescription.classList.add('display-none')
     singleTodoItemDescription.setAttribute('data-id', i);
     const description = arr[i].description;
     singleTodoItemDescription.textContent = description;
-    singleTodoItem.append(singleTodoItemDescription);
+    singleTodoItemDescriptionContainer.append(singleTodoItemDescription)
+    
+    const singleTodoItemDescriptionButton = document.createElement('button');
+    singleTodoItemDescriptionButton.setAttribute('id', 'edit-button')
+    singleTodoItemDescriptionButton.setAttribute('data-id', i);
+    singleTodoItemDescriptionButton.textContent = 'Edit';
+    singleTodoItemDescriptionContainer.append(singleTodoItemDescriptionButton)
+    
+    singleTodoItem.append(singleTodoItemDescriptionContainer);
+
 
     const removeButton = document.createElement('button');
     removeButton.setAttribute('data-id', i);
@@ -141,37 +155,52 @@ const appendElements = (arr, container) => {
     singleTodoItem.append(showDetails);
 
     container.append(singleTodoItem);
-    
-    container.addEventListener('click', (e) => {
-      if (e.target.id === 'show-details-button') {
-        let allItemDescriptionsNode = document.querySelectorAll('p.itemDescription');
-        let allItemDescriptions = Array.from(allItemDescriptionsNode);
-        for (let i = 0; i < allItemDescriptions.length; i++) {
-          let descriptionId = allItemDescriptions[i].dataset.id
-          if (descriptionId === e.target.dataset.id) {
-            allItemDescriptions[i].classList.remove('display-none');
-            allItemDescriptions[i].classList.add('display-inline');
-          } 
+  }
+  container.addEventListener('click', (e) => {
+    if (e.target.id === 'show-details-button') {
+      let allItemDescriptionContainersNode = document.querySelectorAll('div.itemDescription');
+      let allItemDescriptionContainers = Array.from(allItemDescriptionContainersNode);
+      for (let i = 0; i < allItemDescriptionContainers.length; i++) {
+        let descriptionId = allItemDescriptionContainers[i].dataset.id
+        if (descriptionId === e.target.dataset.id) {
+          allItemDescriptionContainers[i].classList.remove('display-none');
+          allItemDescriptionContainers[i].classList.add('display-inline');
+        } 
+      }
+    }
+
+    if (e.target.id === 'remove-button') {
+      const allSingleTodoItemsNode = document.querySelectorAll('div#single-todo-item');
+      const allSingleTodoItems = Array.from(allSingleTodoItemsNode);
+      for (let i = 0; i < allSingleTodoItems.length; i++) {
+        if (allSingleTodoItems[i].dataset.id === e.target.dataset.id) {
+          container.removeChild(allSingleTodoItems[i]);
+        }
+      } 
+      for (let i = 0; i < todoItems.length; i++) {
+        if (todoItems[i] === arr[e.target.dataset.id]) {
+          todoItems.splice(i, 1);
+        }
+      } 
+    }
+
+    if (e.target.id === 'edit-button') {
+      const answer = prompt('How would you describe this to-do again?', '');
+      const allItemDescriptionsNode = document.querySelectorAll('p.itemDescription');
+      const allItemDescriptions = Array.from(allItemDescriptionsNode);
+      for (let i = 0; i < allItemDescriptions.length; i++) {
+        if (allItemDescriptions[i].dataset.id === e.target.dataset.id) {
+          allItemDescriptions[i].innerHTML = answer;
+        }
+      } 
+      for (let i = 0; i < todoItems.length; i++) {
+        if (todoItems[i] === arr[e.target.dataset.id]) {
+          todoItems[i].description = answer;
         }
       }
-
-      if (e.target.id === 'remove-button') {
-        const allSingleTodoItemsNode = document.querySelectorAll('div#single-todo-item');
-        const allSingleTodoItems = Array.from(allSingleTodoItemsNode);
-        for (let i = 0; i < allSingleTodoItems.length; i++) {
-          if (allSingleTodoItems[i].dataset.id === e.target.dataset.id) {
-            container.removeChild(allSingleTodoItems[i]);
-          }
-        } 
-        for (let i = 0; i < todoItems.length; i++) {
-          if (todoItems[i] === arr[e.target.dataset.id]) {
-            todoItems.splice(i, 1);
-          }
-        } 
-      }
-    })
-
-  }
+      console.log(todoItems)
+    }
+  })
 }
 
 const showAllTodosButton = document.getElementById('show-all-todos');
