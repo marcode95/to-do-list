@@ -65,9 +65,24 @@ submitButton.addEventListener('click', () => {
   const priority = document.getElementById('priorityInput').value;
   const project = document.getElementById('projectInput').value;
   const newItem = toDoItem(title, description, date, priority, project);
+  if (!title || !description || !date || !priority) {
+    return false;
+  }
+  if (checkForDuplicates(newItem) === false) {
+    return false;
+  }
   todoItems.push(newItem);
   console.log(todoItems)
 });
+
+const checkForDuplicates = (newItem) => {
+  for (let i = 0; i < todoItems.length; i++) {
+    if (todoItems[i].title === newItem.title && todoItems[i].description === newItem.description && todoItems[i].date === newItem.date) {
+        console.log('duplicate')
+        return false;
+    }
+  }
+}
 
 const projectSubmitButton = document.getElementById('projectSubmitInput')
 const projectOptions = document.getElementById('projectInput')
