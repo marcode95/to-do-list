@@ -78,7 +78,6 @@ submitButton.addEventListener('click', () => {
 const checkForDuplicates = (newItem) => {
   for (let i = 0; i < todoItems.length; i++) {
     if (todoItems[i].title === newItem.title && todoItems[i].description === newItem.description && todoItems[i].date === newItem.date) {
-        console.log('duplicate')
         return false;
     }
   }
@@ -119,58 +118,59 @@ projectList.addEventListener('click', (e) => {
   appendElements(filteredItems, projectPage);
 });
 
-const appendElements = (arr, container) => {
-  for (var i=0; i < arr.length; i++) {
-    const singleTodoItem = document.createElement('div');
-    singleTodoItem.setAttribute('data-id', i);
-    singleTodoItem.setAttribute('id', 'single-todo-item');
+const appendElementsDom = (arr, container, i) => {
+  const singleTodoItem = document.createElement('div');
+  singleTodoItem.setAttribute('data-id', i);
+  singleTodoItem.setAttribute('id', 'single-todo-item');
 
-    const singleTodoItemTitle = document.createElement('p');
-    const title = arr[i].title;
-    singleTodoItemTitle.textContent = title;
-    singleTodoItem.append(singleTodoItemTitle);
+  const singleTodoItemTitle = document.createElement('p');
+  const title = arr[i].title;
+  singleTodoItemTitle.textContent = title;
+  singleTodoItem.append(singleTodoItemTitle);
 
-    const singleTodoItemDate = document.createElement('p');
-    const date = arr[i].date;
-    singleTodoItemDate.textContent = date;
-    singleTodoItem.append(singleTodoItemDate);
-
-
-    const singleTodoItemDescriptionContainer = document.createElement('div')
-    singleTodoItemDescriptionContainer.classList.add('display-none')
-    singleTodoItemDescriptionContainer.classList.add('itemDescription')
-    singleTodoItemDescriptionContainer.setAttribute('data-id', i);
-
-    const singleTodoItemDescription = document.createElement('p')
-    singleTodoItemDescription.classList.add('itemDescription')
-    singleTodoItemDescription.setAttribute('data-id', i);
-    const description = arr[i].description;
-    singleTodoItemDescription.textContent = description;
-    singleTodoItemDescriptionContainer.append(singleTodoItemDescription)
-    
-    const singleTodoItemDescriptionButton = document.createElement('button');
-    singleTodoItemDescriptionButton.setAttribute('id', 'edit-button')
-    singleTodoItemDescriptionButton.setAttribute('data-id', i);
-    singleTodoItemDescriptionButton.textContent = 'Edit';
-    singleTodoItemDescriptionContainer.append(singleTodoItemDescriptionButton)
-    
-    singleTodoItem.append(singleTodoItemDescriptionContainer);
+  const singleTodoItemDate = document.createElement('p');
+  const date = arr[i].date;
+  singleTodoItemDate.textContent = date;
+  singleTodoItem.append(singleTodoItemDate);
 
 
-    const removeButton = document.createElement('button');
-    removeButton.setAttribute('data-id', i);
-    removeButton.setAttribute('id', 'remove-button');
-    removeButton.textContent = 'Remove';
-    singleTodoItem.append(removeButton)
+  const singleTodoItemDescriptionContainer = document.createElement('div')
+  singleTodoItemDescriptionContainer.classList.add('display-none')
+  singleTodoItemDescriptionContainer.classList.add('itemDescription')
+  singleTodoItemDescriptionContainer.setAttribute('data-id', i);
 
-    const showDetails = document.createElement('button');
-    showDetails.setAttribute('data-id', i);
-    showDetails.setAttribute('id', 'show-details-button');
-    showDetails.textContent = 'Show Details';
-    singleTodoItem.append(showDetails);
+  const singleTodoItemDescription = document.createElement('p')
+  singleTodoItemDescription.classList.add('itemDescription')
+  singleTodoItemDescription.setAttribute('data-id', i);
+  const description = arr[i].description;
+  singleTodoItemDescription.textContent = description;
+  singleTodoItemDescriptionContainer.append(singleTodoItemDescription)
+  
+  const singleTodoItemDescriptionButton = document.createElement('button');
+  singleTodoItemDescriptionButton.setAttribute('id', 'edit-button')
+  singleTodoItemDescriptionButton.setAttribute('data-id', i);
+  singleTodoItemDescriptionButton.textContent = 'Edit';
+  singleTodoItemDescriptionContainer.append(singleTodoItemDescriptionButton)
+  
+  singleTodoItem.append(singleTodoItemDescriptionContainer);
 
-    container.append(singleTodoItem);
-  }
+
+  const removeButton = document.createElement('button');
+  removeButton.setAttribute('data-id', i);
+  removeButton.setAttribute('id', 'remove-button');
+  removeButton.textContent = 'Remove';
+  singleTodoItem.append(removeButton)
+
+  const showDetails = document.createElement('button');
+  showDetails.setAttribute('data-id', i);
+  showDetails.setAttribute('id', 'show-details-button');
+  showDetails.textContent = 'Show Details';
+  singleTodoItem.append(showDetails);
+
+  container.append(singleTodoItem);
+}
+
+const showDetailsButtonListener = (container) => {
   container.addEventListener('click', (e) => {
     if (e.target.id === 'show-details-button') {
       let allItemDescriptionContainersNode = document.querySelectorAll('div.itemDescription');
@@ -183,7 +183,11 @@ const appendElements = (arr, container) => {
         } 
       }
     }
+  })
+}
 
+const removeButtonListener = (arr, container) => {
+  container.addEventListener('click', (e) => {
     if (e.target.id === 'remove-button') {
       const allSingleTodoItemsNode = document.querySelectorAll('div#single-todo-item');
       const allSingleTodoItems = Array.from(allSingleTodoItemsNode);
@@ -198,7 +202,11 @@ const appendElements = (arr, container) => {
         }
       } 
     }
+  })
+}
 
+const editButtonListener = (arr, container) => {
+  container.addEventListener('click', (e) => {
     if (e.target.id === 'edit-button') {
       const answer = prompt('How would you describe this to-do again?', '');
       const allItemDescriptionsNode = document.querySelectorAll('p.itemDescription');
@@ -216,6 +224,15 @@ const appendElements = (arr, container) => {
       console.log(todoItems)
     }
   })
+}
+
+const appendElements = (arr, container) => {
+  for (var i=0; i < arr.length; i++) {
+    appendElementsDom(arr, container, i);
+  }
+  showDetailsButtonListener(container);
+  removeButtonListener(arr, container);
+  editButtonListener(arr, container);
 }
 
 const showAllTodosButton = document.getElementById('show-all-todos');
