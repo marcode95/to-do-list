@@ -8,6 +8,7 @@ const startpageButton = document.getElementById('startpage-button')
 const startpage = document.getElementById('startpage')
 const navigation = document.getElementById('navigation')
 const project = document.getElementById('project')
+const todos = document.getElementById('todos')
 
 const closeAllOtherSectionsExceptFor = (currentSection) => {
   let otherSections = Array.from(allSections).filter(item => {
@@ -37,7 +38,7 @@ startpageButton.addEventListener('click', () => {
   switchButtonsFromTo(startpageButton, navigationButton)
 });
 
-const toDoItems = []
+const todoItems = []
 
 const toDoItem = (title, description, date, priority, project) => {
   return { title, description, date, priority, project };
@@ -51,8 +52,8 @@ submitButton.addEventListener('click', () => {
   const priority = document.getElementById('priorityInput').value;
   const project = document.getElementById('projectInput').value;
   const newItem = toDoItem(title, description, date, priority, project);
-  toDoItems.push(newItem);
-  console.log(toDoItems)
+  todoItems.push(newItem);
+  console.log(todoItems)
 });
 
 const projectSubmitButton = document.getElementById('projectSubmitInput')
@@ -79,7 +80,7 @@ const createProjectButton = (project) => {
 const projectPage = document.getElementById('project-page')
 
 projectList.addEventListener('click', (e) => {
-  let filteredItems = toDoItems.filter(item => {
+  let filteredItems = todoItems.filter(item => {
     return item.project === e.target.dataset.project;
   })
   closeAllOtherSectionsExceptFor(project)
@@ -122,26 +123,71 @@ const appendElements = (arr, container) => {
           allItemDescriptions[i].classList.add('display-inline');
         } 
       }
-
     })
   }
 }
 
-
-
-function blabla() {
-  console.log('blalbasdf')
-  const allItemDescriptions = document.querySelectorAll('p.itemDescription')
-  console.log(allItemDescriptions)
-  const rightItemDescription = Array.from(allItemDescriptions).filter(item => {
-    return item.dataset.id === e.target.dataset.id;
-  })
-  console.log(rightItemDescription)
-  rightItemDescription.classList.remove('display-none');
-  rightItemDescription.classList.add('display-inline');
-};
-
 const showAllTodosButton = document.getElementById('show-all-todos');
+const todosPage = document.getElementById('todos-page');
 showAllTodosButton.addEventListener('click', (e) => {
-  console.log(toDoItems)
+  todosPage.innerHTML = '';
+  closeAllOtherSectionsExceptFor(todos);
+  appendElements(todoItems, todosPage);
 });
+
+const sortSubmitButton = document.getElementById('sort-submit-input');
+sortSubmitButton.addEventListener('click', (e) => {
+  todosPage.innerHTML = '';
+  const category = document.getElementById('sortCategoryInput').value;
+  const order = document.getElementById('sortOrderInput').value;
+  const categoryOrder = category+order
+  console.log('bla')
+  console.log(categoryOrder)
+  const todoItemsSorted = sortBy(todoItems, categoryOrder);
+  console.log('blabla')
+  console.log(todoItemsSorted)
+  appendElements(todoItemsSorted, todosPage);
+})
+
+const sortBy = (arr, categoryOrder) => {
+  switch (categoryOrder) {
+  case "PriorityAscending":
+    return arr.sort(function(a, b) {
+      return parseInt(a.priority) - parseInt(b.priority)
+    });
+    break;
+  case "PriorityDescending":
+    return arr.sort(function(a, b) {
+      return parseInt(b.priority) - parseInt(a.priority)
+    });
+    break;
+  case "TitleAscending":
+    return arr.sort(function(a, b) {
+      if(a.title < b.title) { return -1; }
+      if(a.title > b.title) { return 1; }
+      return 0;
+    });
+    break;
+  case "TitleDescending":
+    return arr.sort(function(a, b) {
+      if(a.title < b.title) { return 1; }
+      if(a.title > b.title) { return -1; }
+      return 0;
+    });
+    break;
+  case "DateAscending":
+    return arr.sort(function(a, b) {
+      if(a.date < b.date) { return -1; }
+      if(a.date > b.date) { return 1; }
+      return 0;
+    });
+    break;
+  case "DateDescending":
+    return arr.sort(function(a, b) {
+      if(a.date < b.date) { return 1; }
+      if(a.date > b.date) { return -1; }
+      return 0;
+    });
+    break;
+  }
+}
