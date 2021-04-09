@@ -94,38 +94,65 @@ projectList.addEventListener('click', (e) => {
 const appendElements = (arr, container) => {
   for (var i=0; i < arr.length; i++) {
     const singleTodoItem = document.createElement('div');
+    singleTodoItem.setAttribute('data-id', i);
+    singleTodoItem.setAttribute('id', 'single-todo-item');
+
     const singleTodoItemTitle = document.createElement('p');
-    const singleTodoItemDate = document.createElement('p')
+    const title = arr[i].title;
+    singleTodoItemTitle.textContent = title;
+    singleTodoItem.append(singleTodoItemTitle);
+
+    const singleTodoItemDate = document.createElement('p');
+    const date = arr[i].date;
+    singleTodoItemDate.textContent = date;
+    singleTodoItem.append(singleTodoItemDate);
+
     const singleTodoItemDescription = document.createElement('p')
     singleTodoItemDescription.classList.add('itemDescription')
     singleTodoItemDescription.classList.add('display-none')
     singleTodoItemDescription.setAttribute('data-id', i);
-    const showDetails = document.createElement('button')
-    showDetails.setAttribute('data-id', i)
-    showDetails.setAttribute('id', 'blabla')
-    const title = arr[i].title;
-    const date = arr[i].date;
     const description = arr[i].description;
-    singleTodoItemTitle.textContent = title;
-    singleTodoItemDate.textContent = date;
     singleTodoItemDescription.textContent = description;
-    showDetails.textContent = 'Show Details';
-    singleTodoItem.append(singleTodoItemTitle);
-    singleTodoItem.append(singleTodoItemDate);
     singleTodoItem.append(singleTodoItemDescription);
+
+    const removeButton = document.createElement('button');
+    removeButton.setAttribute('data-id', i);
+    removeButton.setAttribute('id', 'remove-button');
+    removeButton.textContent = 'Remove';
+    singleTodoItem.append(removeButton)
+
+    const showDetails = document.createElement('button');
+    showDetails.setAttribute('data-id', i);
+    showDetails.setAttribute('id', 'show-details-button');
+    showDetails.textContent = 'Show Details';
     singleTodoItem.append(showDetails);
+
     container.append(singleTodoItem);
+    
     container.addEventListener('click', (e) => {
-      let allItemDescriptionsNode = document.querySelectorAll('p.itemDescription');
-      let allItemDescriptions = Array.from(allItemDescriptionsNode);
-      for (let i = 0; i < allItemDescriptions.length; i++) {
-        let descriptionId = allItemDescriptions[i].dataset.id
-        if (descriptionId === e.target.dataset.id) {
-          allItemDescriptions[i].classList.remove('display-none');
-          allItemDescriptions[i].classList.add('display-inline');
+      if (e.target.id === 'show-details-button') {
+        let allItemDescriptionsNode = document.querySelectorAll('p.itemDescription');
+        let allItemDescriptions = Array.from(allItemDescriptionsNode);
+        for (let i = 0; i < allItemDescriptions.length; i++) {
+          let descriptionId = allItemDescriptions[i].dataset.id
+          if (descriptionId === e.target.dataset.id) {
+            allItemDescriptions[i].classList.remove('display-none');
+            allItemDescriptions[i].classList.add('display-inline');
+          } 
+        }
+      }
+
+      if (e.target.id === 'remove-button') {
+        const allSingleTodoItemsNode = document.querySelectorAll('div#single-todo-item');
+        const allSingleTodoItems = Array.from(allSingleTodoItemsNode);
+        for (let i = 0; i < allSingleTodoItems.length; i++) {
+          if (allSingleTodoItems[i].dataset.id === e.target.dataset.id) {
+            container.removeChild(allSingleTodoItems[i]);
+          }
         } 
       }
     })
+
   }
 }
 
