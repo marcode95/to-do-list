@@ -6,35 +6,50 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/9a2f12287f.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <button id="navigation-button">Navigation</button>
+  <button id="navigation-button" data-aos="fade" data-aos-duration="700" data-aos-delay="1700"><i class="fas fa-bars"></i></button>
   <button id="startpage-button" class="display-none">Startpage</button>
 
   <section id="startpage">
+    <div class="header d-flex justify-content-center">
+      <div data-aos="fade" data-aos-duration="1000">t</div>
+      <div class="header-o" data-aos="fade-down" data-aos-delay="700" data-aos-duration="700">o</div>
+      <div data-aos="fade" data-aos-duration="1000">d</div>
+      <div class="header-o" data-aos="fade-down" data-aos-delay="700" data-aos-duration="700">o</div>
+      <div data-aos="fade-down" data-aos-delay="1500" data-aos-duration="200">'</div>
+      <div data-aos="fade" data-aos-duration="1000">s</div>
+    </div>
     <form id="form">
-      <input type="text" id="titleInput" placeholder="Title" class="input"/> <br>
-      <input type="text" id="descriptionInput" placeholder="Description" class="input"/> <br>
-      <input type="date" id="dateInput" placeholder="Due Date" class="input"/> <br>
-      <label for="priority">Priority:</label>
-      <select name="priority" id="priorityInput">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-      </select> <br>
-      <label for="priority">Project:</label>
-      <select name="project" id="projectInput">
-        <option value="None">None</option>
-      </select> <br>
-      <input type="button" id="submitInput" value="Submit"/>
+      <div class="form-container mx-auto">
+        <h2 data-aos="fade-up" data-aos-duration="700" data-aos-delay="1700">New todo:</h2> 
+        <input type="text" id="titleInput" placeholder="Title" class="form-input" data-aos="fade-up" data-aos-duration="700" data-aos-delay="1700"/> 
+        <input type="text" id="descriptionInput" placeholder="Description" class="form-input" data-aos="fade-up" data-aos-duration="700" data-aos-delay="1800" data-aos-anchor="#titleInput"/> 
+        <input type="date" id="dateInput" placeholder="Due Date" class="form-input" data-aos="fade-up" data-aos-duration="700" data-aos-delay="1900" data-aos-anchor="#titleInput"/> 
+        <select name="priority" id="priorityInput" class="form-input" data-aos="fade-up" data-aos-duration="700" data-aos-delay="2000" data-aos-anchor="#titleInput">
+          <option value="">Priority</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select> 
+        <select name="project" id="projectInput" class="form-input" data-aos="fade-up" data-aos-duration="700" data-aos-delay="2100" data-aos-anchor="#titleInput">
+          <option value="">Project</option>
+        </select> 
+        <input type="button" id="submitInput" value="Submit" class="form-input" data-aos="fade-up" data-aos-duration="700" data-aos-delay="2200" data-aos-anchor="#titleInput"/>
+      </div>
     </form>
-    <br>
+    
     <form id="project-form">
-      <label for="priority">New Project:</label> <br>
-      <input type="text" id="projectTitleInput" placeholder="Title" class="input"/> <br>
-      <input type="button" id="projectSubmitInput" value="Submit"/>
+      <div class="form-container mx-auto">
+        <h2 class="mt-3" data-aos="fade-up" data-aos-duration="700" data-aos-delay="2300" data-aos-anchor="#titleInput">New Project:</h2> 
+        <input type="text" id="projectTitleInput" placeholder="Title" class="form-input" data-aos="fade-up" data-aos-duration="700" data-aos-delay="2400" data-aos-anchor="#titleInput"/> 
+        <input type="button" id="projectSubmitInput" value="Submit" class="form-input" data-aos="fade-up" data-aos-duration="700" data-aos-delay="2500" data-aos-anchor="#titleInput"/>
+      </div>
     </form>
   </section>
 
@@ -86,5 +101,9 @@
   </section>
 
   <script src="bundle.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 </body>
 </html>

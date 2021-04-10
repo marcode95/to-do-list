@@ -5,6 +5,16 @@
   font-style: normal;
 }
 
+body {
+  font-family: 'Myfont';
+}
+
+*,
+*:focus,
+*:hover {
+  outline: none;
+}
+
 .display-none {
   display: none;
 }
@@ -14,6 +24,65 @@
 }
 
 /* startpage */
+
+#startpage {
+  color: black;
+  padding-top: 30px;
+  padding-bottom: 40px;
+}
+
+#navigation-button {
+  position: absolute;
+  top: 6px;
+  left: 10px;
+  font-size: 30px;
+  background-color: transparent;
+  border: none;
+}
+
+.header {
+  font-size: 60px;
+  color: #D65C67;
+}
+
+.header-o {
+
+}
+
+h2 {
+  text-align: center;
+  font-size: 35px;
+  margin-bottom: 0;
+}
+
+.form-container {
+  width: 280px;
+}
+
+.form-container > *{
+  margin-bottom: 7px;
+}
+
+.form-input {
+  width: 280px;
+  height: 40px;
+  font-size: 22px;
+  text-align: center;
+  background: none;
+  color: black;
+  border: 2px #D65C67 solid;
+  border-radius: 20px;
+}
+
+.form-input::placeholder {
+  color: rgb(156, 156, 156);
+}
+
+#priorityInput,
+#projectInput {
+  padding-left: 10px;
+  padding-right: 10px;
+}
 
 /* project */
 

@@ -4,8 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack"
+    "build": "webpack",
+    "test": "jest",
+    "testwatch": "jest --watchAll",
+    "watch": "webpack --watch",
+    "dev": "webpack --mode development",
+    "start": "webpack-dev-server --mode development --open"
   },
   "repository": {
     "type": "git",
@@ -22,5 +26,8 @@
     "style-loader": "^2.0.0",
     "webpack": "^5.30.0",
     "webpack-cli": "^4.6.0"
+  },
+  "dependencies": {
+    "aos": "^2.3.4"
   }
 }
