@@ -14,7 +14,7 @@
   <button id="navigation-button" data-aos="fade" data-aos-duration="700" data-aos-delay="1700"><i class="fas fa-bars"></i></button>
   <button id="startpage-button" class="display-none">Startpage</button>
 
-  <section id="startpage">
+  <section id="startpage" class="display-none">
     <div class="header d-flex justify-content-center">
       <div data-aos="fade" data-aos-duration="1000">t</div>
       <div class="header-o" data-aos="fade-down" data-aos-delay="700" data-aos-duration="700">o</div>
@@ -31,11 +31,9 @@
         <input type="date" id="dateInput" placeholder="Due Date" class="form-input" data-aos="fade-up" data-aos-duration="700" data-aos-delay="1900" data-aos-anchor="#titleInput"/> 
         <select name="priority" id="priorityInput" class="form-input" data-aos="fade-up" data-aos-duration="700" data-aos-delay="2000" data-aos-anchor="#titleInput">
           <option value="">Priority</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
+          <option value="1">Low</option>
+          <option value="2">Mid</option>
+          <option value="3">High</option>
         </select> 
         <select name="project" id="projectInput" class="form-input" data-aos="fade-up" data-aos-duration="700" data-aos-delay="2100" data-aos-anchor="#titleInput">
           <option value="">Project</option>
@@ -60,21 +58,26 @@
     <div id="project-list">Projects:<br></div>
   </section>
 
-  <section id="todos" class="display-none">
-    <form id="todos-form">
-      <label for="category">Category:</label>
-      <select name="category" id="sortCategoryInput">
-        <option value="Date">Date</option>
-        <option value="Title">Title</option>
-        <option value="Priority">Priority</option>
-      </select> <br>
-      <label for="order">Order:</label>
-      <select name="order" id="sortOrderInput">
-        <option value="Ascending">Ascending</option>
-        <option value="Descending">Descending</option>
-      </select> <br>
-      <input type="button" id="sort-submit-input" value="Submit"/>
+  <section id="todos" class="px-3">
+    <form id="todos-form" class="pt-3">
+      <div class="todos-form-container d-flex ml-5 mb-3">
+        <select name="category" id="sortCategoryInput">
+          <option value="Date">Date</option>
+          <option value="Title">Title</option>
+          <option value="Priority">Priority</option>
+        </select> <br>
+        <select name="order" id="sortOrderInput">
+          <option value="Ascending">Ascending</option>
+          <option value="Descending">Descending</option>
+        </select> <br>
+        <input type="button" id="sort-submit-input" value="Sort"/>
+      </div>
     </form>
+    <div class="prio-explanation-circles d-flex align-items-end mb-3">
+      <div class="high-prio" data-aos="flip-right" data-aos-duration="700" data-aos-delay="200"><p>High</p></div>
+      <div class="mid-prio" data-aos="flip-right" data-aos-duration="700" data-aos-delay="400"><p>Mid</p></div>
+      <div class="low-prio" data-aos="flip-right" data-aos-duration="700" data-aos-delay="600"><p>Low</p></div>
+    </div>
     <div id="todos-page"></div>
   </section>
 

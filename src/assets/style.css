@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'MyFont';
-  src: url('../fonts/Raleway-Regular.ttf');
+  src: url('../fonts/Raleway-Medium.ttf');
   font-weight: 600;
   font-style: normal;
 }
@@ -23,6 +23,22 @@ body {
   display: inline;
 }
 
+.display-block {
+  display: block;
+}
+
+.low-prio {
+  background-color: #8A90E2;
+}
+
+.mid-prio {
+  background-color: #4A53D2;
+}
+
+.high-prio {
+  background-color: #2C34AF;
+}
+
 /* startpage */
 
 #startpage {
@@ -43,10 +59,6 @@ body {
 .header {
   font-size: 60px;
   color: #D65C67;
-}
-
-.header-o {
-
 }
 
 h2 {
@@ -86,4 +98,101 @@ h2 {
 
 /* project */
 
+/* todos-page */
+
+.prio-explanation-circles > div {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.prio-explanation-circles > div > p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+#todos-page {
+  display: grid;
+  grid-template-columns: repeat( auto-fit, minmax(150px, 1fr) );
+  grid-gap: 12px;
+  color: white;
+}
+
+.single-todo-item {
+  border-radius: 25px;
+  padding: 10px 15px 18px 15px;
+}
+
+.single-todo-item p {
+  margin-bottom: 0;
+}
+
+.single-todo-item > button {
+  position: relative;
+  color: white;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  border: 2px solid white;
+  border-radius: 8px;
+  transition: all .2s ease-in-out;
+  margin-top: 15px;
+}
+
+.single-todo-item > button:focus,
+.single-todo-item > button:hover {
+  outline: none;
+  transform: scale(1.1);
+}
+
+.single-todo-item > button > i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.single-todo-item-title {
+  font-size: 24px;
+}
+
+#show-details-button {
+  margin-right: 8px;
+}
+
+.itemDescriptionContainer {
+  word-wrap: break-word;
+}
+
+#edit-button {
+  position: relative;
+  color: white;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  border: 2px solid white;
+  border-radius: 8px;
+  margin-right: 8px;
+  transition: all .2s ease-in-out;
+}
+
+#edit-button:focus,
+#edit-button:hover {
+  outline: none;
+  transform: scale(1.1);
+}
+
+#edit-button > i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
 

@@ -51,7 +51,14 @@ startpageButton.addEventListener('click', () => {
   switchButtonsFromTo(startpageButton, navigationButton)
 });
 
-const todoItems = []
+const todoItems = [
+{title: "asdf", description: "wash some random shit I don't know wtf I'm talking about", date: "2021-04-07", priority: "3", project: ""},
+{title: "asdfasdf", description: "asdfasdfasdfasdfsassdfsadfasdfasdf", date: "2021-04-07", priority: "1", project: ""},
+{title: "sdf", description: "sassdfsadfasdfasdf", date: "2021-04-07", priority: "2", project: ""},
+{title: "asdf", description: "wash some random shit I don't know wtf I'm talking about", date: "2021-04-07", priority: "3", project: ""},
+{title: "asdfasdf", description: "asdfasdfasdfasdfsassdfsadfasdfasdf", date: "2021-04-07", priority: "1", project: ""},
+{title: "sdf", description: "sassdfsadfasdfasdf", date: "2021-04-07", priority: "2", project: ""}
+]
 
 const toDoItem = (title, description, date, priority, project) => {
   return { title, description, date, priority, project };
@@ -121,22 +128,27 @@ projectList.addEventListener('click', (e) => {
 const appendElementsDom = (arr, container, i) => {
   const singleTodoItem = document.createElement('div');
   singleTodoItem.setAttribute('data-id', i);
-  singleTodoItem.setAttribute('id', 'single-todo-item');
+  singleTodoItem.setAttribute('data-aos', 'fade-up');
+  singleTodoItem.setAttribute('data-aos-duration', '700');
+  singleTodoItem.setAttribute('data-aos-delay', (200*i));
+  singleTodoItem.classList.add('single-todo-item');
 
   const singleTodoItemTitle = document.createElement('p');
   const title = arr[i].title;
   singleTodoItemTitle.textContent = title;
+  singleTodoItemTitle.classList.add('single-todo-item-title');
   singleTodoItem.append(singleTodoItemTitle);
 
   const singleTodoItemDate = document.createElement('p');
   const date = arr[i].date;
   singleTodoItemDate.textContent = date;
+  singleTodoItemDate.classList.add('single-todo-item-date');
   singleTodoItem.append(singleTodoItemDate);
 
 
   const singleTodoItemDescriptionContainer = document.createElement('div')
   singleTodoItemDescriptionContainer.classList.add('display-none')
-  singleTodoItemDescriptionContainer.classList.add('itemDescription')
+  singleTodoItemDescriptionContainer.classList.add('itemDescriptionContainer')
   singleTodoItemDescriptionContainer.setAttribute('data-id', i);
 
   const singleTodoItemDescription = document.createElement('p')
@@ -149,23 +161,24 @@ const appendElementsDom = (arr, container, i) => {
   const singleTodoItemDescriptionButton = document.createElement('button');
   singleTodoItemDescriptionButton.setAttribute('id', 'edit-button')
   singleTodoItemDescriptionButton.setAttribute('data-id', i);
-  singleTodoItemDescriptionButton.textContent = 'Edit';
+  singleTodoItemDescriptionButton.innerHTML = '<i class="far fa-edit"></i>';
   singleTodoItemDescriptionContainer.append(singleTodoItemDescriptionButton)
   
   singleTodoItem.append(singleTodoItemDescriptionContainer);
 
+  const showDetails = document.createElement('button');
+  showDetails.setAttribute('data-id', i);
+  showDetails.setAttribute('id', 'show-details-button');
+  showDetails.innerHTML = '<i class="fas fa-info"></i>';
+  singleTodoItem.append(showDetails);
 
   const removeButton = document.createElement('button');
   removeButton.setAttribute('data-id', i);
   removeButton.setAttribute('id', 'remove-button');
-  removeButton.textContent = 'Remove';
+  removeButton.innerHTML = '<i class="far fa-trash-alt"></i>';
   singleTodoItem.append(removeButton)
 
-  const showDetails = document.createElement('button');
-  showDetails.setAttribute('data-id', i);
-  showDetails.setAttribute('id', 'show-details-button');
-  showDetails.textContent = 'Show Details';
-  singleTodoItem.append(showDetails);
+  addColor(singleTodoItem, arr[i].priority)
 
   container.append(singleTodoItem);
 }
@@ -173,7 +186,7 @@ const appendElementsDom = (arr, container, i) => {
 const showDetailsButtonListener = (container) => {
   container.addEventListener('click', (e) => {
     if (e.target.id === 'show-details-button') {
-      let allItemDescriptionContainersNode = document.querySelectorAll('div.itemDescription');
+      let allItemDescriptionContainersNode = document.querySelectorAll('div.itemDescriptionContainer');
       let allItemDescriptionContainers = Array.from(allItemDescriptionContainersNode);
       for (let i = 0; i < allItemDescriptionContainers.length; i++) {
         let descriptionId = allItemDescriptionContainers[i].dataset.id
@@ -189,7 +202,7 @@ const showDetailsButtonListener = (container) => {
 const removeButtonListener = (arr, container) => {
   container.addEventListener('click', (e) => {
     if (e.target.id === 'remove-button') {
-      const allSingleTodoItemsNode = document.querySelectorAll('div#single-todo-item');
+      const allSingleTodoItemsNode = document.querySelectorAll('div.single-todo-item');
       const allSingleTodoItems = Array.from(allSingleTodoItemsNode);
       for (let i = 0; i < allSingleTodoItems.length; i++) {
         if (allSingleTodoItems[i].dataset.id === e.target.dataset.id) {
@@ -226,6 +239,21 @@ const editButtonListener = (arr, container) => {
   })
 }
 
+const addColor = (item, priority) => {
+  switch (priority) {
+    case "1":
+      item.classList.add('low-prio');
+      break;
+    case "2":
+      item.classList.add('mid-prio');
+      break;
+    case "3":
+      item.classList.add('high-prio');
+      break;
+  }
+}
+
+
 const appendElements = (arr, container) => {
   for (var i=0; i < arr.length; i++) {
     appendElementsDom(arr, container, i);
@@ -235,6 +263,7 @@ const appendElements = (arr, container) => {
   editButtonListener(arr, container);
 }
 
+
 const showAllTodosButton = document.getElementById('show-all-todos');
 const todosPage = document.getElementById('todos-page');
 showAllTodosButton.addEventListener('click', (e) => {
@@ -243,7 +272,7 @@ showAllTodosButton.addEventListener('click', (e) => {
   appendElements(todoItems, todosPage);
 });
 
-
+appendElements(todoItems, todosPage);
 
 const showFutureTodosButton = document.getElementById('future-todos');
 const futurePage = document.getElementById('future-page');
