@@ -7,6 +7,7 @@
 
 body {
   font-family: 'Myfont';
+  max-width: 600px;
 }
 
 *,
@@ -99,6 +100,21 @@ h2 {
 /* project */
 
 /* todos-page */
+
+.todos-form-container > * {
+  color: black;
+  background-color: white;
+  font-size: 14px;
+  border: none;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  width: 106px;
+}
+
+#sortOrderInput {
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+}
 
 .prio-explanation-circles > div {
   position: relative;
