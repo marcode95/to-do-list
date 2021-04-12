@@ -9,6 +9,7 @@ body {
   position: relative;
   font-family: 'Myfont';
   max-width: 600px;
+  min-height: 100vh;
 }
 
 section {
@@ -107,6 +108,11 @@ nav {
   transition: 0.45s;
 }
 
+#project-list:focus,
+#project-list:hover {
+  outline: none;
+}
+
 .project-option-links {
   border: none;
   background: transparent;
@@ -152,6 +158,7 @@ h2 {
   background-color: #4A53D2;
   border: 2px white;
   border-radius: 20px;
+
 }
 
 .form-input::placeholder {
@@ -168,15 +175,6 @@ h2 {
   padding-left: 10px;
   padding-right: 10px;
 }
-
-#submitInput:hover,
-#projectSubmitInput:hover {
-  color: #4A53D2;
-  border: 2px #4A53D2;
-  background-color: white;
-  transition: 0.45s;
-}
-
 
 /* todos-page */
 
@@ -305,7 +303,7 @@ h2 {
   border-right: 2px solid black;
 }
 
-/* project */
+/* future */
 
 #future-page {
   display: grid;
@@ -314,4 +312,172 @@ h2 {
   color: white;
 }
 
+/* project */
 
+@media only screen and (min-width: 1200px) {
+  body {
+    max-width: 1000px;
+  }
+  
+  section {
+    max-width: 1000px;
+  }
+  
+  /* navbar */
+  
+  nav {
+    background-color: rgb(240, 240, 240);
+    height: 80px;
+  }
+  
+  .nav-container {
+    max-width: 1000px;
+    margin: auto;
+  }
+  
+  #navigation-button {
+    font-size: 30px;
+  }
+  
+  .header {
+    font-size: 55px;
+  }
+
+  /* navigation */
+
+  #navigation {
+    width: 300px
+  }
+
+  .navigation-button {
+    font-size: 28px;
+    border-radius: 19px;
+    margin-bottom: 20px;
+  }
+
+  .project-option-links {
+    font-size: 25px;
+  }
+
+    /* startpage */
+
+  #startpage {
+    color: black;
+    padding-top: 40px;
+    padding-bottom: 53px;
+  }
+
+  h2 {
+    text-align: center;
+    font-size: 45px;
+    margin-bottom: 10px;
+  }
+
+  .form-container {
+    width: 495px;
+  }
+
+  .form-container > *{
+    margin-bottom: 14px;
+  }
+
+  .form-input {
+    width: 400px;
+    height: 60px;
+    font-size: 30px;
+    text-align: center;
+    background: none;
+    color: white;
+    background-color: #4A53D2;
+    border: 2px white;
+    border-radius: 30px;
+
+  }
+
+  .form-input::placeholder {
+    color: rgba(255, 255, 255, 0.493);
+  }
+
+  ::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    margin-right: 10px;
+  }
+
+  #priorityInput,
+  #projectInput {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  /* todos-page */
+
+  .todos-form-container > * {
+    font-size: 20px;
+    width: 150px;
+    margin-top: 20px;
+  }
+
+  .prio-explanation-circles > div {
+    width: 80px;
+    height: 80px;
+    margin: 10px 15px 10px 0;
+  }
+
+  .prio-explanation-circles > div > p {
+    font-size: 27.5px;
+  }
+
+  #todos-page {
+    grid-template-columns: repeat( auto-fit, minmax(230px, 1fr) );
+    grid-gap: 22px;
+  }
+
+  .single-todo-item {
+    border-radius: 34px;
+    padding: 15px 20px 23px 20px;
+  }
+
+  .single-todo-item > button {
+    width: 45px;
+    height: 45px;
+    border-radius: 12px;
+    margin-top: 20px;
+  }
+
+  .single-todo-item > button > i {
+    font-size: 25px;
+  }
+
+  .single-todo-item-title {
+    font-size: 30px;
+  }
+
+  #show-details-button {
+    margin-right: 13px;
+  }
+
+  #edit-button {
+    width: 45px;
+    height: 45px;
+    border-radius: 12px;
+    margin-top: 20px;
+  }
+
+  #edit-button > i {
+    font-size: 25px;
+  }
+
+  /* project */
+
+  #project-page {
+    grid-template-columns: repeat( auto-fit, minmax(230px, 1fr) );
+    grid-gap: 22px;
+  }
+  
+  /* future */
+  
+  #future-page {
+    grid-template-columns: repeat( auto-fit, minmax(230px, 1fr) );
+    grid-gap: 22px;
+  }
+}

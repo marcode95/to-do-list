@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <script src="https://kit.fontawesome.com/9a2f12287f.js" crossorigin="anonymous"></script>
 </head>
-<body class="mx-auto">
+<body class="mx-auto border-left border-right">
   <nav class="">
     <div class="nav-container d-flex justify-content-between px-3">
       <button id="navigation-button"><i class="fas fa-bars"></i></button>
@@ -26,9 +26,9 @@
     </div>
   </nav>
 
-  <section id="startpage" class="">
+  <section id="startpage" class="d-xl-flex">
     <form id="form">
-      <div class="form-container mx-auto">
+      <div class="form-container d-xl-flex flex-column align-items-center mx-auto">
         <h2 data-aos="fade-up" data-aos-duration="700" data-aos-delay="1700">New todo:</h2> 
         <input type="text" id="titleInput" placeholder="Title" class="form-input" data-aos="fade-up" data-aos-duration="700" data-aos-delay="1700"/> 
         <input type="text" id="descriptionInput" placeholder="Description" class="form-input" data-aos="fade-up" data-aos-duration="700" data-aos-delay="1800" data-aos-anchor="#titleInput"/> 
@@ -47,8 +47,8 @@
     </form>
     
     <form id="project-form">
-      <div class="form-container mx-auto">
-        <h2 class="mt-3" data-aos="fade-up" data-aos-duration="700" data-aos-delay="2300" data-aos-anchor="#titleInput">New Project:</h2> 
+      <div class="form-container d-xl-flex flex-column align-items-center mx-auto">
+        <h2 class="mt-3 mt-xl-0" data-aos="fade-up" data-aos-duration="700" data-aos-delay="2300" data-aos-anchor="#titleInput">New Project:</h2> 
         <input type="text" id="projectTitleInput" placeholder="Title" class="form-input" data-aos="fade-up" data-aos-duration="700" data-aos-delay="2400" data-aos-anchor="#titleInput"/> 
         <input type="button" id="projectSubmitInput" value="Submit" class="form-input" data-aos="fade-up" data-aos-duration="700" data-aos-delay="2500" data-aos-anchor="#titleInput"/>
       </div>
