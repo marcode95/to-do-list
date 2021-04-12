@@ -34,30 +34,22 @@ const closeAllOtherSectionsExceptFor = (currentSection) => {
   currentSection.classList.add('display-block');
 })}
 
-const switchButtonsFromTo = (from, to) => {
-  from.classList.remove('display-inline')
-  from.classList.add('display-none')
-  to.classList.remove('display-none')
-  to.classList.add('display-inline')  
-}
-
 navigationButton.addEventListener('click', () => {
-  closeAllOtherSectionsExceptFor(navigation);
-  switchButtonsFromTo(navigationButton, startpageButton)
+  navigation.classList.remove('display-none');
+  navigation.classList.add('display-block');
 });
 
 startpageButton.addEventListener('click', () => {
   closeAllOtherSectionsExceptFor(startpage);
-  switchButtonsFromTo(startpageButton, navigationButton)
 });
 
 const todoItems = [
-{title: "asdf", description: "wash some random shit I don't know wtf I'm talking about", date: "2021-04-07", priority: "3", project: ""},
-{title: "asdfasdf", description: "asdfasdfasdfasdfsassdfsadfasdfasdf", date: "2021-04-07", priority: "1", project: ""},
-{title: "sdf", description: "sassdfsadfasdfasdf", date: "2021-04-07", priority: "2", project: ""},
-{title: "asdf", description: "wash some random shit I don't know wtf I'm talking about", date: "2021-04-07", priority: "3", project: ""},
-{title: "asdfasdf", description: "asdfasdfasdfasdfsassdfsadfasdfasdf", date: "2021-04-07", priority: "1", project: ""},
-{title: "sdf", description: "sassdfsadfasdfasdf", date: "2021-04-07", priority: "2", project: ""}
+{title: "asdf", description: "wash some random shit I don't know wtf I'm talking about", date: "2021-04-07", priority: "3", project: "cleaning"},
+{title: "asdfasdf", description: "asdfasdfasdfasdfsassdfsadfasdfasdf", date: "2021-04-07", priority: "1", project: "cleaning"},
+{title: "sdf", description: "sassdfsadfasdfasdf", date: "2021-04-07", priority: "2", project: "cleaning"},
+{title: "asdf", description: "wash some random shit I don't know wtf I'm talking about", date: "2021-04-07", priority: "3", project: "shopping"},
+{title: "asdfasdf", description: "asdfasdfasdfasdfsassdfsadfasdfasdf", date: "2021-04-07", priority: "1", project: "shopping"},
+{title: "sdf", description: "sassdfsadfasdfasdf", date: "2021-04-07", priority: "2", project: "shopping"}
 ]
 
 const toDoItem = (title, description, date, priority, project) => {
@@ -102,27 +94,39 @@ projectSubmitButton.addEventListener('click', () => {
 });
 
 const projectList = document.getElementById('project-list');
+projectList.addEventListener('click', () => {
+  const optionLinksNode = document.querySelectorAll('button.project-option-links');
+  const optionLinks = Array.from(optionLinksNode)
+  for (let i = 0; i < optionLinks.length; i++) {
+    optionLinks[i].classList.remove('display-none');
+    optionLinks[i].classList.add('display-inline');
+  }
+})
+
 const createProjectButton = (project) => {
   const projectLink = document.createElement('button');
   projectLink.setAttribute('data-project', project);
   projectLink.setAttribute('id', project + 'Link');
+  projectLink.classList.add('project-option-links');
+  projectLink.classList.add('display-none');
   projectLink.textContent = project
-  projectList.append(projectLink)
+  navigation.append(projectLink)
 }
 
 
 const projectPage = document.getElementById('project-page')
 
-projectList.addEventListener('click', (e) => {
-  let filteredItems = todoItems.filter(item => {
-    return item.project === e.target.dataset.project;
-  })
-  closeAllOtherSectionsExceptFor(project)
-  switchButtonsFromTo(navigationButton, startpageButton)
-  projectPage.innerHTML = '';
-  projectPage.removeAttribute('data-project');
-  projectPage.setAttribute('data-project', e.target.dataset.project)
-  appendElements(filteredItems, projectPage);
+navigation.addEventListener('click', (e) => {
+  if (e.target.classList.contains('project-option-links')) {
+    let filteredItems = todoItems.filter(item => {
+      return item.project === e.target.dataset.project;
+    })
+    closeAllOtherSectionsExceptFor(project)
+    projectPage.innerHTML = '';
+    projectPage.removeAttribute('data-project');
+    projectPage.setAttribute('data-project', e.target.dataset.project)
+    appendElements(filteredItems, projectPage);
+  }
 });
 
 const appendElementsDom = (arr, container, i) => {

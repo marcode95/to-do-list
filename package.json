@@ -9,7 +9,7 @@
     "testwatch": "jest --watchAll",
     "watch": "webpack --watch",
     "dev": "webpack --mode development",
-    "start": "webpack-dev-server --mode development --open"
+    "start": "webpack serve --mode development --open"
   },
   "repository": {
     "type": "git",
@@ -28,6 +28,7 @@
     "webpack-cli": "^4.6.0"
   },
   "dependencies": {
-    "aos": "^2.3.4"
+    "aos": "^2.3.4",
+    "webpack-dev-server": "^3.11.2"
   }
 }

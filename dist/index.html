@@ -23,11 +23,10 @@
         <div data-aos="fade" data-aos-duration="1000">s</div>
       </div>
       <div class="nav-fake-element"></div>
-      <button id="startpage-button" class="display-none">Startpage</button>
     </div>
   </nav>
 
-  <section id="startpage" class="display-none">
+  <section id="startpage" class="">
     <form id="form">
       <div class="form-container mx-auto">
         <h2 data-aos="fade-up" data-aos-duration="700" data-aos-delay="1700">New todo:</h2> 
@@ -56,14 +55,14 @@
     </form>
   </section>
 
-  <section id="navigation" class="display-none">
-    <br>
-    <button id="show-all-todos">All To-Do's:</button>
-    <button id="future-todos">Future To-Do's:</button>
-    <div id="project-list">Projects:<br></div>
+  <section id="navigation" class="display-none d-flex flex-column" data-aos="fade-right" data-aos-duration="700">
+    <button id="startpage-button" class="navigation-button">Startpage</button>
+    <button id="show-all-todos" class="navigation-button">All To-Do's</button>
+    <button id="future-todos" class="navigation-button">Future To-Do's</button>
+    <button id="project-list" class="navigation-button">Projects</button>
   </section>
 
-  <section id="todos" class="px-3">
+  <section id="todos" class="display-none px-3">
     <form id="todos-form" class="pt-3">
       <div class="todos-form-container d-flex justify-content-center mb-3">
         <select name="category" id="sortCategoryInput">

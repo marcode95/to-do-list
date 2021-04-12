@@ -6,7 +6,9 @@
 }
 
 body {
+  position: relative;
   font-family: 'Myfont';
+  max-width: 600px;
 }
 
 section {
@@ -21,7 +23,7 @@ section {
 }
 
 .display-none {
-  display: none;
+  display: none !important; 
 }
 
 .display-inline {
@@ -48,6 +50,7 @@ section {
 
 nav {
   background-color: rgb(240, 240, 240);
+  height: 50px;
 }
 
 .nav-container {
@@ -72,6 +75,48 @@ nav {
 
 .nav-fake-element {
   width: 29.5px;
+}
+
+/* navigation */
+
+#navigation {
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  min-height: 100vh;
+  color: white;
+  background-color: #4A53D2;
+  border-right: 2px solid black;   
+  padding: 20px;
+}
+
+.navigation-button {
+  font-size: 20px;
+  color: white;
+  background-color: transparent;
+  border: 2px solid white;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+.navigation-button:hover {
+  text-decoration: none;
+  background-color: white;
+  color: #8A90E2;
+  border-color: white;
+  transition: 0.45s;
+}
+
+.project-option-links {
+  border: none;
+  background: transparent;
+  text-align: right;
+  color: white;
+  font-size: 20px;
+}
+
+.project-option-links:hover {
+  text-decoration: underline;
 }
 
 /* startpage */
@@ -103,13 +148,19 @@ h2 {
   font-size: 22px;
   text-align: center;
   background: none;
-  color: black;
-  border: 2px #D65C67 solid;
+  color: white;
+  background-color: #4A53D2;
+  border: 2px white;
   border-radius: 20px;
 }
 
 .form-input::placeholder {
-  color: rgb(156, 156, 156);
+  color: rgba(255, 255, 255, 0.493);
+}
+
+::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  margin-right: 10px;
 }
 
 #priorityInput,
