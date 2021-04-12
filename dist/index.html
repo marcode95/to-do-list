@@ -89,21 +89,26 @@
     <div id="future-page"></div>
   </section>
 
-  <section id="project" class="display-none">
-    <form id="project-form">
-      <label for="category">Category:</label>
-      <select name="category" id="projectSortCategoryInput">
-        <option value="Date">Date</option>
-        <option value="Title">Title</option>
-        <option value="Priority">Priority</option>
-      </select> <br>
-      <label for="order">Order:</label>
-      <select name="order" id="projectSortOrderInput">
-        <option value="Ascending">Ascending</option>
-        <option value="Descending">Descending</option>
-      </select> <br>
-      <input type="button" id="project-sort-submit-input" value="Submit"/>
+  <section id="project" class="display-none px-3">
+    <form id="project-form" class="pt-3">
+      <div class="todos-form-container d-flex justify-content-center mb-3">
+        <select name="category" id="projectSortCategoryInput">
+          <option value="Date">Date</option>
+          <option value="Title">Title</option>
+          <option value="Priority">Priority</option>
+        </select> <br>
+        <select name="order" id="projectSortOrderInput">
+          <option value="Ascending">Ascending</option>
+          <option value="Descending">Descending</option>
+        </select> <br>
+        <input type="button" id="project-sort-submit-input" value="Submit"/>
+      </div>
     </form>
+    <div class="prio-explanation-circles d-flex justify-content-center align-items-end mb-3">
+      <div class="high-prio" data-aos="flip-right" data-aos-duration="700" data-aos-delay="200"><p>High</p></div>
+      <div class="mid-prio" data-aos="flip-right" data-aos-duration="700" data-aos-delay="400"><p>Mid</p></div>
+      <div class="low-prio" data-aos="flip-right" data-aos-duration="700" data-aos-delay="600"><p>Low</p></div>
+    </div>
     <div id="project-page"></div>
   </section>
 

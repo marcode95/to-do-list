@@ -169,7 +169,27 @@ h2 {
   padding-right: 10px;
 }
 
+#submitInput:hover,
+#projectSubmitInput:hover {
+  color: #4A53D2;
+  border: 2px #4A53D2;
+  background-color: white;
+  transition: 0.45s;
+}
+
 /* project */
+
+#project-page {
+  display: grid;
+  grid-template-columns: repeat( auto-fit, minmax(150px, 1fr) );
+  grid-gap: 12px;
+  color: white;
+}
+
+#projectSortOrderInput {
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+}
 
 /* todos-page */
 
