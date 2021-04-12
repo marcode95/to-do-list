@@ -7,7 +7,11 @@
 
 body {
   font-family: 'Myfont';
+}
+
+section {
   max-width: 600px;
+  margin: auto;
 }
 
 *,
@@ -40,6 +44,36 @@ body {
   background-color: #2C34AF;
 }
 
+/* navbar */
+
+nav {
+  background-color: rgb(240, 240, 240);
+}
+
+.nav-container {
+  max-width: 600px;
+  margin: auto;
+}
+
+#navigation-button {
+  font-size: 20px;
+  background-color: transparent;
+  border: none;
+}
+
+.header {
+  font-size: 30px;
+  color: #2C34AF;
+}
+
+.header-o {
+  color: #8A90E2;
+}
+
+.nav-fake-element {
+  width: 29.5px;
+}
+
 /* startpage */
 
 #startpage {
@@ -48,19 +82,6 @@ body {
   padding-bottom: 40px;
 }
 
-#navigation-button {
-  position: absolute;
-  top: 6px;
-  left: 10px;
-  font-size: 30px;
-  background-color: transparent;
-  border: none;
-}
-
-.header {
-  font-size: 60px;
-  color: #D65C67;
-}
 
 h2 {
   text-align: center;

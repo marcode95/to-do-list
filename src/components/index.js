@@ -28,10 +28,10 @@ const closeAllOtherSectionsExceptFor = (currentSection) => {
     return item !== currentSection;
   })
   otherSections.forEach(element => {
-  element.classList.remove('display-inline');
+  element.classList.remove('display-block');
   element.classList.add('display-none');
   currentSection.classList.remove('display-none');
-  currentSection.classList.add('display-inline');
+  currentSection.classList.add('display-block');
 })}
 
 const switchButtonsFromTo = (from, to) => {
