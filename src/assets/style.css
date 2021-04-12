@@ -177,19 +177,6 @@ h2 {
   transition: 0.45s;
 }
 
-/* project */
-
-#project-page {
-  display: grid;
-  grid-template-columns: repeat( auto-fit, minmax(150px, 1fr) );
-  grid-gap: 12px;
-  color: white;
-}
-
-#projectSortOrderInput {
-  border-left: 2px solid black;
-  border-right: 2px solid black;
-}
 
 /* todos-page */
 
@@ -303,4 +290,28 @@ h2 {
   transform: translate(-50%, -50%);
   pointer-events: none;
 }
+
+/* project */
+
+#project-page {
+  display: grid;
+  grid-template-columns: repeat( auto-fit, minmax(150px, 1fr) );
+  grid-gap: 12px;
+  color: white;
+}
+
+#projectSortOrderInput {
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+}
+
+/* project */
+
+#future-page {
+  display: grid;
+  grid-template-columns: repeat( auto-fit, minmax(150px, 1fr) );
+  grid-gap: 12px;
+  color: white;
+}
+
 

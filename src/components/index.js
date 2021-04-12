@@ -44,12 +44,12 @@ startpageButton.addEventListener('click', () => {
 });
 
 const todoItems = [
-{title: "asdf", description: "wash some random shit I don't know wtf I'm talking about", date: "2021-04-07", priority: "3", project: "cleaning"},
-{title: "asdfasdf", description: "asdfasdfasdfasdfsassdfsadfasdfasdf", date: "2021-04-07", priority: "1", project: "cleaning"},
-{title: "sdf", description: "sassdfsadfasdfasdf", date: "2021-04-07", priority: "2", project: "cleaning"},
-{title: "asdf", description: "wash some random shit I don't know wtf I'm talking about", date: "2021-04-07", priority: "3", project: "shopping"},
-{title: "asdfasdf", description: "asdfasdfasdfasdfsassdfsadfasdfasdf", date: "2021-04-07", priority: "1", project: "shopping"},
-{title: "sdf", description: "sassdfsadfasdfasdf", date: "2021-04-07", priority: "2", project: "shopping"}
+{title: "asdf", description: "wash some random shit I don't know wtf I'm talking about", date: "2021-04-15", priority: "3", project: "cleaning"},
+{title: "asdfasdf", description: "asdfasdfasdfasdfsassdfsadfasdfasdf", date: "2021-04-16", priority: "1", project: "cleaning"},
+{title: "sdf", description: "sassdfsadfasdfasdf", date: "2021-04-17", priority: "2", project: "cleaning"},
+{title: "asdf", description: "wash some random shit I don't know wtf I'm talking about", date: "2021-04-20", priority: "3", project: "shopping"},
+{title: "asdfasdf", description: "asdfasdfasdfasdfsassdfsadfasdfasdf", date: "2021-04-19", priority: "1", project: "shopping"},
+{title: "sdf", description: "sassdfsadfasdfasdf", date: "2021-04-18", priority: "2", project: "shopping"}
 ]
 
 const toDoItem = (title, description, date, priority, project) => {
@@ -284,10 +284,15 @@ showFutureTodosButton.addEventListener('click', (e) => {
   console.log('navbuttonworks')
   futurePage.innerHTML = '';
   closeAllOtherSectionsExceptFor(future);
-  const futureItems = todoItems.filter(item => {
+  const futureItems = todoItems
+  .filter(item => {
     return item.date > today;
   })
-  console.log(futureItems)
+  .sort(function(a, b) {
+      if(a.date < b.date) { return -1; }
+      if(a.date > b.date) { return 1; }
+      return 0;
+  })
   appendElements(futureItems, futurePage);
 });
 
