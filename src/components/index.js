@@ -154,6 +154,8 @@ const appendElementsDom = (arr, container, i) => {
   editForm.setAttribute('data-id', i);
   editForm.setAttribute('id', 'editForm');
   editForm.classList.add('display-none');
+  editForm.classList.add('d-flex');
+  editForm.classList.add('flex-column');
 
   const editInput = document.createElement('input');
   editInput.setAttribute('placeholder', 'New Description');
