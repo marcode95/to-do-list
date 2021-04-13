@@ -261,14 +261,23 @@ const editButtonListener = (container) => {
 const editFormListener = (arr, container) => {
   container.addEventListener('click', (e) => {
     if (e.target.id === 'editSubmit') {
-      const allEditFormsNode = document.querySelectorAll('form#editForm');
-      const allEditForms = Array.from(allEditFormsNode);
-      for (let i = 0; i < allEditForms.length; i++) {
-        if (allEditForms[i].dataset.id === e.target.dataset.id) {
-          allEditForms[i].classList.remove('display-none');
-          allEditForms[i].classList.add('display-inline');
+      const allItemDescriptionsNode = document.querySelectorAll('p.itemDescription');
+      const allItemDescriptions = Array.from(allItemDescriptionsNode);
+      const answer = document.getElementById('editInput').value;
+      for (let i = 0; i < allItemDescriptions.length; i++) {
+        if (allItemDescriptions[i].dataset.id === e.target.dataset.id) {
+          allItemDescriptions[i].innerHTML = answer;
+        }
+      } 
+      for (let i = 0; i < todoItems.length; i++) {
+        if (todoItems[i] === arr[e.target.dataset.id]) {
+          todoItems[i].description = answer;
         }
       }
+      const editForm = e.target.parentNode;
+      console.log(editForm);
+      editForm.classList.remove('display-inline');
+      editForm.classList.add('display-none');
     }
   })
 } 
@@ -295,6 +304,7 @@ const appendElements = (arr, container) => {
   showDetailsButtonListener(container);
   removeButtonListener(arr, container);
   editButtonListener(container);
+  editFormListener(arr, container);
 }
 
 
