@@ -492,31 +492,6 @@ h2 {
     font-size: 25px;
   }
 
-  #editInput {
-    width: 140px;
-    color: white;
-    border: 2px solid white;
-    border-radius: 9px;
-    background-color: transparent;
-    margin-top: 7px;
-    padding-left: 4px;
-  }
-  
-  #editInput::placeholder {
-    color: lightgray;
-  }
-  
-  #editSubmit {
-    width: 70px;
-    text-align: center;
-    color: white;
-    border: 2px solid white;
-    border-radius: 9px;
-    background-color: transparent;
-    margin-top: 5px;
-    margin-bottom: 10px;
-  }
-
   /* project */
 
   #project-page {
