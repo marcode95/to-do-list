@@ -1,3 +1,4 @@
+import { getTodos, setTodos } from './localStorage';
 import { todoItems } from './todoSubmit';
 
 const showDetailsButtonListener = (container) => {
@@ -26,11 +27,13 @@ const removeButtonListener = (arr, container) => {
           container.removeChild(allSingleTodoItems[i]);
         }
       }
+      getTodos();
       for (let i = 0; i < todoItems.length; i++) {
         if (todoItems[i] === arr[e.target.dataset.id]) {
           todoItems.splice(i, 1);
         }
       }
+      setTodos();
     }
   });
 };
@@ -61,11 +64,13 @@ const editFormListener = (arr, container) => {
           allItemDescriptions[i].innerHTML = answer;
         }
       }
+      getTodos();
       for (let i = 0; i < todoItems.length; i++) {
         if (todoItems[i] === arr[e.target.dataset.id]) {
           todoItems[i].description = answer;
         }
       }
+      setTodos();
       const editForm = e.target.parentNode;
       editForm.classList.remove('display-inline');
       editForm.classList.add('display-none');
