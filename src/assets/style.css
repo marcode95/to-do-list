@@ -51,7 +51,6 @@ section {
 
 nav {
   background-color: rgb(240, 240, 240);
-  height: 50px;
 }
 
 .nav-container {
@@ -68,6 +67,7 @@ nav {
 .header {
   font-size: 30px;
   color: #2C34AF;
+  cursor: pointer;
 }
 
 .header-o {
@@ -78,52 +78,51 @@ nav {
   width: 29.5px;
 }
 
-/* navigation */
-
-#navigation {
-  position: absolute;
-  top: 0;
-  z-index: 1;
-  min-height: 100vh;
-  color: white;
-  background-color: #4A53D2;
-  border-right: 2px solid black;   
-  padding: 20px;
-}
-
 .navigation-button {
   font-size: 20px;
-  color: white;
+  color: black;
   background-color: transparent;
-  border: 2px solid white;
-  border-radius: 12px;
-  margin-bottom: 15px;
+  border: none;
 }
 
 .navigation-button:hover {
   text-decoration: none;
-  background-color: white;
-  color: #8A90E2;
-  border-color: white;
+  color: #4A53D2;
   transition: 0.45s;
 }
 
-#project-list:focus,
-#project-list:hover {
+.navigation-button:focus,
+.navigation-button:hover {
   outline: none;
 }
 
 .project-option-links {
+  width: 120px;
+  height: 40px;
   border: none;
-  background: transparent;
-  text-align: right;
-  color: white;
+  background: rgb(240, 240, 240);
+  text-align: center;
+  color: black;
   font-size: 20px;
 }
 
 .project-option-links:hover {
-  text-decoration: underline;
+  text-decoration: none;
+  background-color: white;
 }
+
+.dropdown {
+  position: relative;
+}
+
+#project-list-items {
+  position: absolute;
+  overflow: auto;
+  z-index: 1;
+  border: 1px solid grey;
+  border-top: none;
+}
+
 
 /* startpage */
 
@@ -368,16 +367,8 @@ h2 {
     font-size: 55px;
   }
 
-  /* navigation */
-
-  #navigation {
-    width: 300px
-  }
-
   .navigation-button {
     font-size: 28px;
-    border-radius: 19px;
-    margin-bottom: 20px;
   }
 
   .project-option-links {
@@ -506,3 +497,4 @@ h2 {
     grid-gap: 22px;
   }
 }
+

@@ -43,7 +43,6 @@ const createProjectButton = (project) => {
   projectLink.setAttribute('data-project', project);
   projectLink.setAttribute('id', `${project}Link`);
   projectLink.classList.add('project-option-links');
-  projectLink.classList.add('display-none');
   projectLink.textContent = project;
   projectListItems.append(projectLink);
 };

@@ -16,7 +16,7 @@ const todosPage = document.getElementById('todos-page');
 const showFutureTodosButton = document.getElementById('future-todos');
 const futurePage = document.getElementById('future-page');
 const projectPage = document.getElementById('project-page');
-
+const projectListItems = document.getElementById('project-list-items');
 
 const navigationFunctions = () => {
   const closeAllOtherSectionsExceptFor = (currentSection) => {
@@ -29,26 +29,18 @@ const navigationFunctions = () => {
     });
   };
 
-  navigationButton.addEventListener('click', () => {
-    navigation.classList.remove('display-none');
-    navigation.classList.add('display-block');
-  });
-
   startpageButton.addEventListener('click', () => {
     closeAllOtherSectionsExceptFor(startpage);
   });
 
   const projectList = document.getElementById('project-list');
   projectList.addEventListener('click', () => {
-    const optionLinksNode = document.querySelectorAll('button.project-option-links');
-    const optionLinks = Array.from(optionLinksNode);
-    for (let i = 0; i < optionLinks.length; i++) {
-      optionLinks[i].classList.remove('display-none');
-      optionLinks[i].classList.add('display-inline');
-    }
-  });
+    console.log(projectListItems);
+      projectListItems.classList.toggle('display-none');
 
-  navigation.addEventListener('click', (e) => {
+    });
+
+  document.addEventListener('click', (e) => {
     if (e.target.classList.contains('project-option-links')) {
       getTodos();
       const filteredItems = todoItems.filter((item) => item.project === e.target.dataset.project);
