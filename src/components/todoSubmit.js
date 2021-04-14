@@ -66,7 +66,6 @@ const todoSubmitListeners = () => {
       return false;
     }
     todoItems.push(newItem);
-    console.log(todoItems)
   });
 
   projectSubmitButton.addEventListener('click', () => {

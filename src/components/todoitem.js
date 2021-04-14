@@ -1,7 +1,6 @@
 import { todoItems } from './todoSubmit';
 
 const showDetailsButtonListener = (container) => {
-  console.log('bla')
   container.addEventListener('click', (e) => {
     if (e.target.id === 'show-details-button') {
       const allItemDescriptionContainersNode = document.querySelectorAll('div.itemDescriptionContainer');
@@ -88,15 +87,10 @@ const addColor = (item, priority) => {
   }
 };
 
-const bla = () => {
-  console.log('bla')
-}
-
 export { 
   showDetailsButtonListener,
   removeButtonListener,
   editButtonListener,
   editFormListener,
-  bla,
   addColor
 };

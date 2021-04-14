@@ -65,7 +65,6 @@ const navigationFunctions = () => {
   });
 
   showFutureTodosButton.addEventListener('click', (e) => {
-    console.log('navbuttonworks');
     futurePage.innerHTML = '';
     closeAllOtherSectionsExceptFor(future);
     const futureItems = todoItems
