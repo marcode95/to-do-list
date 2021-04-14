@@ -1,6 +1,6 @@
 import appendElements from './append';
 import { todoItems } from './todoSubmit';
-import today from './todoSubmit';
+import { today } from './todoSubmit';
 import {getTodos, setTodos} from './localStorage';
 
 const allSections = document.querySelectorAll('section');
