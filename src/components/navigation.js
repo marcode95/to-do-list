@@ -1,6 +1,7 @@
 import appendElements from './append';
-import { todoItems as todoItems } from './todoSubmit';
+import { todoItems } from './todoSubmit';
 import today from './todoSubmit';
+import {getTodos, setTodos} from './localStorage';
 
 const allSections = document.querySelectorAll('section');
 const navigationButton = document.getElementById('navigation-button');
@@ -49,6 +50,7 @@ const navigationFunctions = () => {
 
   navigation.addEventListener('click', (e) => {
     if (e.target.classList.contains('project-option-links')) {
+      getTodos();
       const filteredItems = todoItems.filter((item) => item.project === e.target.dataset.project);
       closeAllOtherSectionsExceptFor(project);
       projectPage.innerHTML = '';
@@ -61,12 +63,14 @@ const navigationFunctions = () => {
   showAllTodosButton.addEventListener('click', (e) => {
     todosPage.innerHTML = '';
     closeAllOtherSectionsExceptFor(todos);
+    getTodos();
     appendElements(todoItems, todosPage);
   });
 
   showFutureTodosButton.addEventListener('click', (e) => {
     futurePage.innerHTML = '';
     closeAllOtherSectionsExceptFor(future);
+    getTodos();
     const futureItems = todoItems
       .filter((item) => item.date > today)
       .sort((a, b) => {

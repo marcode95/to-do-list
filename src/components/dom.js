@@ -1,6 +1,7 @@
 import {addColor} from './todoitem';
 
 const appendElementsDom = (arr, container, i) => {
+  console.log(arr);
   const singleTodoItem = document.createElement('div');
   singleTodoItem.setAttribute('data-id', i);
   singleTodoItem.setAttribute('data-aos', 'fade-up');
