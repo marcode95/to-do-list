@@ -1,11 +1,13 @@
-import {getTodos, setTodos} from './localStorage';
+import {getProjects, getTodos, setProjects, setTodos} from './localStorage';
 
 const submitButton = document.getElementById('submitInput');
 const navigation = document.getElementById('navigation');
+const projectListItems = document.getElementById('project-list-items');
 const projectSubmitButton = document.getElementById('projectSubmitInput');
 const projectOptions = document.getElementById('projectInput');
 
 let todoItems = [];
+let projects = [];
 
 const toDoItem = (title, description, date, priority, project) => ({
   title, description, date, priority, project,
@@ -23,6 +25,19 @@ if (mm < 10) {
 }
 today = `${yyyy}-${mm}-${dd}`;
 
+const addProjectOptions = () => {
+  getProjects();
+  projectOptions.innerHTML = '<option value="">Project</option>';
+  projectListItems.innerHTML = '';
+  for (let i = 0; i < projects.length; i++) {
+    const option = document.createElement('option');
+    option.setAttribute('value', projects[i]);
+    option.textContent = projects[i];
+    projectOptions.append(option);
+    createProjectButton(projects[i]);      
+  }
+}
+
 const createProjectButton = (project) => {
   const projectLink = document.createElement('button');
   projectLink.setAttribute('data-project', project);
@@ -30,7 +45,7 @@ const createProjectButton = (project) => {
   projectLink.classList.add('project-option-links');
   projectLink.classList.add('display-none');
   projectLink.textContent = project;
-  navigation.append(projectLink);
+  projectListItems.append(projectLink);
 };
 
 const todoSubmitListeners = () => {
@@ -54,11 +69,9 @@ const todoSubmitListeners = () => {
 
   projectSubmitButton.addEventListener('click', () => {
     const project = document.getElementById('projectTitleInput').value;
-    const option = document.createElement('option');
-    option.setAttribute('value', project);
-    option.textContent = project;
-    projectOptions.append(option);
-    createProjectButton(project);
+    projects.push(project);
+    setProjects();
+    addProjectOptions();
   });
 }
 
@@ -71,7 +84,9 @@ const checkForDuplicates = (newItem) => {
 };
 
 export {
+  addProjectOptions,
   todoItems,
+  projects,
   toDoItem,
   today
 }
