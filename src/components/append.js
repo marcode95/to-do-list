@@ -1,11 +1,11 @@
 import appendElementsDom from './dom';
-import {showDetailsButtonListener} from './todoitem';
-import {removeButtonListener} from './todoitem';
-import {editButtonListener} from './todoitem';
-import {editFormListener} from './todoitem';
+import {
+  showDetailsButtonListener, removeButtonListener, editButtonListener, editFormListener,
+} from './todoitem';
+
 
 const appendElements = (arr, container) => {
-  for (let i = 0; i < arr.length; i++) {
+  for (let i = 0; i < arr.length; i += 1) {
     appendElementsDom(arr, container, i);
   }
   showDetailsButtonListener(container);

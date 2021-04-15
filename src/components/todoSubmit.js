@@ -1,41 +1,28 @@
-import {getProjects, getTodos, setProjects, setTodos} from './localStorage';
+import { getProjects, getTodos, setProjects } from './localStorage';
 
 const submitButton = document.getElementById('submitInput');
 const projectListItems = document.getElementById('project-list-items');
 const projectSubmitButton = document.getElementById('projectSubmitInput');
 const projectOptions = document.getElementById('projectInput');
 
-let todoItems = [];
-let projects = [];
+const todoItems = [];
+const projects = [];
 
 const toDoItem = (title, description, date, priority, project) => ({
   title, description, date, priority, project,
 });
 
-let today = new Date();
-let dd = today.getDate();
-let mm = today.getMonth() + 1;
-const yyyy = today.getFullYear();
+const todayDate = new Date();
+let dd = todayDate.getDate();
+let mm = todayDate.getMonth() + 1;
+const yyyy = todayDate.getFullYear();
 if (dd < 10) {
   dd = `0${dd}`;
 }
 if (mm < 10) {
   mm = `0${mm}`;
 }
-today = `${yyyy}-${mm}-${dd}`;
-
-const addProjectOptions = () => {
-  getProjects();
-  projectOptions.innerHTML = '<option value="">Project</option>';
-  projectListItems.innerHTML = '';
-  for (let i = 0; i < projects.length; i++) {
-    const option = document.createElement('option');
-    option.setAttribute('value', projects[i]);
-    option.textContent = projects[i];
-    projectOptions.append(option);
-    createProjectButton(projects[i]);      
-  }
-}
+const today = `${yyyy}-${mm}-${dd}`;
 
 const createProjectButton = (project) => {
   const projectLink = document.createElement('button');
@@ -44,6 +31,29 @@ const createProjectButton = (project) => {
   projectLink.classList.add('project-option-links');
   projectLink.textContent = project;
   projectListItems.append(projectLink);
+};
+
+const addProjectOptions = () => {
+  getProjects();
+  projectOptions.innerHTML = '<option value="">Project</option>';
+  projectListItems.innerHTML = '';
+  for (let i = 0; i < projects.length; i += 1) {
+    const option = document.createElement('option');
+    option.setAttribute('value', projects[i]);
+    option.textContent = projects[i];
+    projectOptions.append(option);
+    createProjectButton(projects[i]);
+  }
+};
+
+const checkForDuplicates = (newItem) => {
+  for (let i = 0; i < todoItems.length; i += 1) {
+    // eslint-disable-next-line max-len
+    if (todoItems[i].title === newItem.title && todoItems[i].description === newItem.description && todoItems[i].date === newItem.date) {
+      return false;
+    }
+  }
+  return true;
 };
 
 const todoSubmitListeners = () => {
@@ -63,6 +73,7 @@ const todoSubmitListeners = () => {
     getTodos();
     todoItems.push(newItem);
     localStorage.setItem('todos', JSON.stringify(todoItems));
+    return true;
   });
 
   projectSubmitButton.addEventListener('click', () => {
@@ -73,15 +84,8 @@ const todoSubmitListeners = () => {
     projects.push(project);
     setProjects();
     addProjectOptions();
+    return true;
   });
-}
-
-const checkForDuplicates = (newItem) => {
-  for (let i = 0; i < todoItems.length; i++) {
-    if (todoItems[i].title === newItem.title && todoItems[i].description === newItem.description && todoItems[i].date === newItem.date) {
-      return false;
-    }
-  }
 };
 
 export {
@@ -89,8 +93,7 @@ export {
   todoItems,
   projects,
   toDoItem,
-  today
-}
+  today,
+};
 
 export default todoSubmitListeners;
-  

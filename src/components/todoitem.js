@@ -6,7 +6,7 @@ const showDetailsButtonListener = (container) => {
     if (e.target.id === 'show-details-button') {
       const allItemDescriptionContainersNode = document.querySelectorAll('div.itemDescriptionContainer');
       const allItemDescriptionContainers = Array.from(allItemDescriptionContainersNode);
-      for (let i = 0; i < allItemDescriptionContainers.length; i++) {
+      for (let i = 0; i < allItemDescriptionContainers.length; i += 1) {
         const descriptionId = allItemDescriptionContainers[i].dataset.id;
         if (descriptionId === e.target.dataset.id) {
           allItemDescriptionContainers[i].classList.toggle('display-none');
@@ -21,13 +21,13 @@ const removeButtonListener = (arr, container) => {
     if (e.target.id === 'remove-button') {
       const allSingleTodoItemsNode = document.querySelectorAll('div.single-todo-item');
       const allSingleTodoItems = Array.from(allSingleTodoItemsNode);
-      for (let i = 0; i < allSingleTodoItems.length; i++) {
+      for (let i = 0; i < allSingleTodoItems.length; i += 1) {
         if (allSingleTodoItems[i].dataset.id === e.target.dataset.id) {
           container.removeChild(allSingleTodoItems[i]);
         }
       }
       getTodos();
-      for (let i = 0; i < todoItems.length; i++) {
+      for (let i = 0; i < todoItems.length; i += 1) {
         if (todoItems[i] === arr[e.target.dataset.id]) {
           todoItems.splice(i, 1);
         }
@@ -42,7 +42,7 @@ const editButtonListener = (container) => {
     if (e.target.id === 'edit-button') {
       const allEditFormsNode = document.querySelectorAll('form#editForm');
       const allEditForms = Array.from(allEditFormsNode);
-      for (let i = 0; i < allEditForms.length; i++) {
+      for (let i = 0; i < allEditForms.length; i += 1) {
         if (allEditForms[i].dataset.id === e.target.dataset.id) {
           allEditForms[i].classList.toggle('display-none');
         }
@@ -54,28 +54,28 @@ const editButtonListener = (container) => {
 const catchInput = (id) => {
   const allEditInputsNode = document.querySelectorAll('input.editInputClass');
   const allEditInputs = Array.from(allEditInputsNode);
-  for (let i = 0; i < allEditInputs.length; i++) {
+  for (let i = 0; i < allEditInputs.length; i += 1) {
     if (allEditInputs[i].dataset.id === id) {
       const answer = allEditInputs[i].value;
       return answer;
-    } 
-  }    
-}
+    }
+  }
+  return true;
+};
 
 const editFormListener = (arr, container) => {
   container.addEventListener('click', (e) => {
     if (e.target.id === 'editSubmit') {
       const answer = catchInput(e.target.dataset.id);
-      console.log(answer)
       const allItemDescriptionsNode = document.querySelectorAll('p.itemDescription');
       const allItemDescriptions = Array.from(allItemDescriptionsNode);
-      for (let i = 0; i < allItemDescriptions.length; i++) {
+      for (let i = 0; i < allItemDescriptions.length; i += 1) {
         if (allItemDescriptions[i].dataset.id === e.target.dataset.id) {
           allItemDescriptions[i].innerHTML = answer;
         }
       }
       getTodos();
-      for (let i = 0; i < todoItems.length; i++) {
+      for (let i = 0; i < todoItems.length; i += 1) {
         if (todoItems[i] === arr[e.target.dataset.id]) {
           todoItems[i].description = answer;
         }
@@ -99,13 +99,14 @@ const addColor = (item, priority) => {
     case '3':
       item.classList.add('high-prio');
       break;
+    default:
   }
 };
 
-export { 
+export {
   showDetailsButtonListener,
   removeButtonListener,
   editButtonListener,
   editFormListener,
-  addColor
+  addColor,
 };

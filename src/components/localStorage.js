@@ -1,5 +1,5 @@
-import { todoItems } from "./todoSubmit";
-import { projects } from "./todoSubmit";
+import { todoItems, projects } from './todoSubmit';
+
 
 const setTodos = () => {
   localStorage.setItem('todos', JSON.stringify(todoItems));
@@ -8,7 +8,7 @@ const setTodos = () => {
 const getTodos = () => {
   if (JSON.parse(localStorage.getItem('todos'))) {
     todoItems.length = 0;
-    JSON.parse(localStorage.getItem('todos')).forEach(todo => {
+    JSON.parse(localStorage.getItem('todos')).forEach((todo) => {
       todoItems.push(todo);
     });
   }
@@ -21,15 +21,15 @@ const setProjects = () => {
 const getProjects = () => {
   if (JSON.parse(localStorage.getItem('projects'))) {
     projects.length = 0;
-    JSON.parse(localStorage.getItem('projects')).forEach(project => {
+    JSON.parse(localStorage.getItem('projects')).forEach((project) => {
       projects.push(project);
     });
   }
 };
 
-export { 
+export {
   setTodos,
   getTodos,
   setProjects,
-  getProjects
+  getProjects,
 };

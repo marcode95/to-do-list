@@ -1,14 +1,14 @@
 import '../assets/style.css';
 import navigationFunctions from './navigation';
-import todoSubmitListeners, { addProjectOptions } from './todoSubmit';
+import todoSubmitListeners, { addProjectOptions, todoItems } from './todoSubmit';
 import sortFunctions from './sort';
-import {getProjects, getTodos, setProjects, setTodos} from './localStorage';
+import { getProjects, getTodos } from './localStorage';
 import appendElements from './append';
-import { todoItems } from "./todoSubmit";
+
 
 getTodos();
 const todosPage = document.getElementById('todos-page');
-appendElements(todoItems, todosPage)
+appendElements(todoItems, todosPage);
 getProjects();
 addProjectOptions();
 todoSubmitListeners();

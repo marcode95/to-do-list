@@ -1,13 +1,11 @@
 import appendElements from './append';
-import { todoItems } from './todoSubmit';
-import { today } from './todoSubmit';
-import {getTodos, setTodos} from './localStorage';
+import { todoItems, today } from './todoSubmit';
+
+import { getTodos } from './localStorage';
 
 const allSections = document.querySelectorAll('section');
-const navigationButton = document.getElementById('navigation-button');
 const startpageButton = document.getElementById('startpage-button');
 const startpage = document.getElementById('startpage');
-const navigation = document.getElementById('navigation');
 const todos = document.getElementById('todos');
 const future = document.getElementById('future');
 const project = document.getElementById('project');
@@ -35,8 +33,8 @@ const navigationFunctions = () => {
 
   const projectList = document.getElementById('project-list');
   projectList.addEventListener('click', () => {
-      projectListItems.classList.toggle('display-none');
-    });
+    projectListItems.classList.toggle('display-none');
+  });
 
   document.addEventListener('click', (e) => {
     if (e.target.classList.contains('project-option-links')) {
@@ -50,14 +48,14 @@ const navigationFunctions = () => {
     }
   });
 
-  showAllTodosButton.addEventListener('click', (e) => {
+  showAllTodosButton.addEventListener('click', () => {
     todosPage.innerHTML = '';
     closeAllOtherSectionsExceptFor(todos);
     getTodos();
     appendElements(todoItems, todosPage);
   });
 
-  showFutureTodosButton.addEventListener('click', (e) => {
+  showFutureTodosButton.addEventListener('click', () => {
     futurePage.innerHTML = '';
     closeAllOtherSectionsExceptFor(future);
     getTodos();
@@ -70,6 +68,6 @@ const navigationFunctions = () => {
       });
     appendElements(futureItems, futurePage);
   });
-}
+};
 
 export default navigationFunctions;

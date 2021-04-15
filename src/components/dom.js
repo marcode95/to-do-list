@@ -1,4 +1,4 @@
-import {addColor} from './todoitem';
+import { addColor } from './todoitem';
 
 const appendElementsDom = (arr, container, i) => {
   const singleTodoItem = document.createElement('div');
@@ -31,7 +31,7 @@ const appendElementsDom = (arr, container, i) => {
   const editInput = document.createElement('input');
   editInput.setAttribute('placeholder', 'New Description');
   editInput.setAttribute('id', 'editInput');
-  editInput.classList.add('editInputClass')
+  editInput.classList.add('editInputClass');
   editInput.setAttribute('data-id', i);
   editInput.setAttribute('type', 'text');
 

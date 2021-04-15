@@ -355,7 +355,7 @@ h2 {
   
   nav {
     background-color: rgb(240, 240, 240);
-    height: 80px;
+    
   }
   
   .nav-container {
@@ -377,6 +377,10 @@ h2 {
 
   .project-option-links {
     font-size: 25px;
+  }
+
+  .project-option-links {
+    width: 250px;
   }
 
     /* startpage */
