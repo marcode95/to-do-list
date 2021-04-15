@@ -17,11 +17,13 @@ const showDetailsButtonListener = (container) => {
 
 const removeButtonListener = (arr, container) => {
   container.addEventListener('click', (e) => {
-    if (e.target.id === 'remove-button') {  
+    if (e.target.id === 'remove-button') {
       getTodos();
       for (let i = 0; i < todoItems.length; i += 1) {
+        // eslint-disable-next-line max-len
         if (todoItems[i].title === arr[e.target.dataset.id].title && todoItems[i].date === arr[e.target.dataset.id].date) {
           todoItems.splice(i, 1);
+          // eslint-disable-next-line
           location.reload();
         }
       }
@@ -50,7 +52,6 @@ const catchInput = (id, container) => {
   for (let i = 0; i < allEditInputs.length; i += 1) {
     if (allEditInputs[i].dataset.id === id) {
       const answer = allEditInputs[i].value;
-      console.log(answer);
       return answer;
     }
   }
@@ -70,6 +71,7 @@ const editFormListener = (arr, container) => {
       }
       getTodos();
       for (let i = 0; i < todoItems.length; i += 1) {
+        // eslint-disable-next-line max-len
         if ((todoItems[i].title === arr[e.target.dataset.id].title && todoItems[i].date === arr[e.target.dataset.id].date)
         ) {
           todoItems[i].description = answer;

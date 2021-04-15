@@ -72,6 +72,7 @@ const todoSubmitListeners = () => {
     getTodos();
     todoItems.push(newItem);
     localStorage.setItem('todos', JSON.stringify(todoItems));
+    // eslint-disable-next-line
     location.reload();
     return true;
   });
