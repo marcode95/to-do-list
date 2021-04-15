@@ -1,5 +1,5 @@
-import { todoItems, projects } from './todoSubmit';
-
+const todoItems = [];
+const projects = [];
 
 const setTodos = () => {
   localStorage.setItem('todos', JSON.stringify(todoItems));
@@ -28,6 +28,8 @@ const getProjects = () => {
 };
 
 export {
+  todoItems,
+  projects,
   setTodos,
   getTodos,
   setProjects,

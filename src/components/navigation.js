@@ -1,7 +1,7 @@
 import appendElements from './append';
-import { todoItems, today } from './todoSubmit';
+import { today } from './todoSubmit';
 
-import { getTodos } from './localStorage';
+import { getTodos, todoItems } from './localStorage';
 
 const allSections = document.querySelectorAll('section');
 const startpageButton = document.getElementById('startpage-button');

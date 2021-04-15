@@ -1,5 +1,5 @@
 import appendElements from './append';
-import { todoItems } from './todoSubmit';
+import { todoItems } from './localStorage';
 
 const sortFunctions = () => {
   const projectPage = document.getElementById('project-page');

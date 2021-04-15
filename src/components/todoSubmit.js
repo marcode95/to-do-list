@@ -1,12 +1,11 @@
-import { getProjects, getTodos, setProjects } from './localStorage';
+import {
+  getProjects, getTodos, setProjects, todoItems, projects,
+} from './localStorage';
 
 const submitButton = document.getElementById('submitInput');
 const projectListItems = document.getElementById('project-list-items');
 const projectSubmitButton = document.getElementById('projectSubmitInput');
 const projectOptions = document.getElementById('projectInput');
-
-const todoItems = [];
-const projects = [];
 
 const toDoItem = (title, description, date, priority, project) => ({
   title, description, date, priority, project,

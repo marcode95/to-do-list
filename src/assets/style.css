@@ -7,7 +7,7 @@
 
 body {
   position: relative;
-  font-family: 'Myfont';
+  font-family: 'Myfont', Arial, Helvetica, sans-serif;
   max-width: 600px;
   min-height: 100vh;
 }
@@ -24,7 +24,7 @@ section {
 }
 
 .display-none {
-  display: none !important; 
+  display: none !important;
 }
 
 .display-inline {
@@ -36,15 +36,15 @@ section {
 }
 
 .low-prio {
-  background-color: #8A90E2;
+  background-color: #8a90e2;
 }
 
 .mid-prio {
-  background-color: #4A53D2;
+  background-color: #4a53d2;
 }
 
 .high-prio {
-  background-color: #2C34AF;
+  background-color: #2c34af;
 }
 
 /* navbar */
@@ -66,12 +66,12 @@ nav {
 
 .header {
   font-size: 30px;
-  color: #2C34AF;
+  color: #2c34af;
   cursor: pointer;
 }
 
 .header-o {
-  color: #8A90E2;
+  color: #8a90e2;
 }
 
 .nav-fake-element {
@@ -87,7 +87,7 @@ nav {
 
 .navigation-button:hover {
   text-decoration: none;
-  color: #4A53D2;
+  color: #4a53d2;
   transition: 0.45s;
 }
 
@@ -123,7 +123,6 @@ nav {
   border-top: none;
 }
 
-
 /* startpage */
 
 #startpage {
@@ -131,7 +130,6 @@ nav {
   padding-top: 30px;
   padding-bottom: 40px;
 }
-
 
 h2 {
   text-align: center;
@@ -143,7 +141,7 @@ h2 {
   width: 280px;
 }
 
-.form-container > *{
+.form-container > * {
   margin-bottom: 7px;
 }
 
@@ -154,10 +152,9 @@ h2 {
   text-align: center;
   background: none;
   color: white;
-  background-color: #4A53D2;
+  background-color: #4a53d2;
   border: 2px white;
   border-radius: 20px;
-
 }
 
 .form-input::placeholder {
@@ -199,6 +196,10 @@ h2 {
   margin-right: 5px;
 }
 
+.single-todo-item p {
+  margin-bottom: 0;
+}
+
 .prio-explanation-circles > div > p {
   position: absolute;
   top: 50%;
@@ -209,7 +210,7 @@ h2 {
 
 #todos-page {
   display: grid;
-  grid-template-columns: repeat( auto-fit, minmax(150px, 1fr) );
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   grid-gap: 12px;
   color: white;
 }
@@ -217,10 +218,6 @@ h2 {
 .single-todo-item {
   border-radius: 25px;
   padding: 10px 15px 18px 15px;
-}
-
-.single-todo-item p {
-  margin-bottom: 0;
 }
 
 .single-todo-item > button {
@@ -231,7 +228,7 @@ h2 {
   background-color: transparent;
   border: 2px solid white;
   border-radius: 8px;
-  transition: all .2s ease-in-out;
+  transition: all 0.2s ease-in-out;
   margin-top: 15px;
 }
 
@@ -270,7 +267,7 @@ h2 {
   border: 2px solid white;
   border-radius: 8px;
   margin-right: 8px;
-  transition: all .2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 #edit-button:focus,
@@ -321,7 +318,7 @@ h2 {
 
 #project-page {
   display: grid;
-  grid-template-columns: repeat( auto-fit, minmax(150px, 1fr) );
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   grid-gap: 12px;
   color: white;
 }
@@ -335,7 +332,7 @@ h2 {
 
 #future-page {
   display: grid;
-  grid-template-columns: repeat( auto-fit, minmax(150px, 1fr) );
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   grid-gap: 12px;
   color: white;
 }
@@ -346,27 +343,26 @@ h2 {
   body {
     max-width: 1000px;
   }
-  
+
   section {
     max-width: 1000px;
   }
-  
+
   /* navbar */
-  
+
   nav {
     background-color: rgb(240, 240, 240);
-    
   }
-  
+
   .nav-container {
     max-width: 1000px;
     margin: auto;
   }
-  
+
   #navigation-button {
     font-size: 30px;
   }
-  
+
   .header {
     font-size: 55px;
   }
@@ -377,13 +373,10 @@ h2 {
 
   .project-option-links {
     font-size: 25px;
-  }
-
-  .project-option-links {
     width: 250px;
   }
 
-    /* startpage */
+  /* startpage */
 
   #startpage {
     color: black;
@@ -401,7 +394,7 @@ h2 {
     width: 495px;
   }
 
-  .form-container > *{
+  .form-container > * {
     margin-bottom: 14px;
   }
 
@@ -412,10 +405,9 @@ h2 {
     text-align: center;
     background: none;
     color: white;
-    background-color: #4A53D2;
+    background-color: #4a53d2;
     border: 2px white;
     border-radius: 30px;
-
   }
 
   .form-input::placeholder {
@@ -452,7 +444,7 @@ h2 {
   }
 
   #todos-page {
-    grid-template-columns: repeat( auto-fit, minmax(230px, 1fr) );
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
     grid-gap: 22px;
   }
 
@@ -494,15 +486,14 @@ h2 {
   /* project */
 
   #project-page {
-    grid-template-columns: repeat( auto-fit, minmax(230px, 1fr) );
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
     grid-gap: 22px;
   }
-  
+
   /* future */
-  
+
   #future-page {
-    grid-template-columns: repeat( auto-fit, minmax(230px, 1fr) );
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
     grid-gap: 22px;
   }
 }
-

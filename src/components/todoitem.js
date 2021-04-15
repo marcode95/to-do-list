@@ -1,5 +1,4 @@
-import { getTodos, setTodos } from './localStorage';
-import { todoItems } from './todoSubmit';
+import { getTodos, setTodos, todoItems } from './localStorage';
 
 const showDetailsButtonListener = (container) => {
   container.addEventListener('click', (e) => {
