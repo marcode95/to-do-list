@@ -1,7 +1,6 @@
 import {getProjects, getTodos, setProjects, setTodos} from './localStorage';
 
 const submitButton = document.getElementById('submitInput');
-const navigation = document.getElementById('navigation');
 const projectListItems = document.getElementById('project-list-items');
 const projectSubmitButton = document.getElementById('projectSubmitInput');
 const projectOptions = document.getElementById('projectInput');
@@ -68,7 +67,7 @@ const todoSubmitListeners = () => {
 
   projectSubmitButton.addEventListener('click', () => {
     const project = document.getElementById('projectTitleInput').value;
-    if (!project) {
+    if (!project || project.length > 12) {
       return false;
     }
     projects.push(project);
