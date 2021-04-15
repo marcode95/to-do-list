@@ -17,18 +17,12 @@ const showDetailsButtonListener = (container) => {
 
 const removeButtonListener = (arr, container) => {
   container.addEventListener('click', (e) => {
-    if (e.target.id === 'remove-button') {
-      const allSingleTodoItemsNode = document.querySelectorAll('div.single-todo-item');
-      const allSingleTodoItems = Array.from(allSingleTodoItemsNode);
-      for (let i = 0; i < allSingleTodoItems.length; i += 1) {
-        if (allSingleTodoItems[i].dataset.id === e.target.dataset.id) {
-          container.removeChild(allSingleTodoItems[i]);
-        }
-      }
+    if (e.target.id === 'remove-button') {  
       getTodos();
       for (let i = 0; i < todoItems.length; i += 1) {
-        if (todoItems[i] === arr[e.target.dataset.id]) {
+        if (todoItems[i].title === arr[e.target.dataset.id].title && todoItems[i].date === arr[e.target.dataset.id].date) {
           todoItems.splice(i, 1);
+          location.reload();
         }
       }
       setTodos();
@@ -50,12 +44,13 @@ const editButtonListener = (container) => {
   });
 };
 
-const catchInput = (id) => {
-  const allEditInputsNode = document.querySelectorAll('input.editInputClass');
+const catchInput = (id, container) => {
+  const allEditInputsNode = container.querySelectorAll('input.editInputClass');
   const allEditInputs = Array.from(allEditInputsNode);
   for (let i = 0; i < allEditInputs.length; i += 1) {
     if (allEditInputs[i].dataset.id === id) {
       const answer = allEditInputs[i].value;
+      console.log(answer);
       return answer;
     }
   }
@@ -65,7 +60,7 @@ const catchInput = (id) => {
 const editFormListener = (arr, container) => {
   container.addEventListener('click', (e) => {
     if (e.target.id === 'editSubmit') {
-      const answer = catchInput(e.target.dataset.id);
+      const answer = catchInput(e.target.dataset.id, container);
       const allItemDescriptionsNode = document.querySelectorAll('p.itemDescription');
       const allItemDescriptions = Array.from(allItemDescriptionsNode);
       for (let i = 0; i < allItemDescriptions.length; i += 1) {
@@ -75,7 +70,8 @@ const editFormListener = (arr, container) => {
       }
       getTodos();
       for (let i = 0; i < todoItems.length; i += 1) {
-        if (todoItems[i] === arr[e.target.dataset.id]) {
+        if ((todoItems[i].title === arr[e.target.dataset.id].title && todoItems[i].date === arr[e.target.dataset.id].date)
+        ) {
           todoItems[i].description = answer;
         }
       }
