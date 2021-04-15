@@ -312,6 +312,11 @@ h2 {
   margin-bottom: 10px;
 }
 
+#submitInput:focus,
+#projectSubmitInput:focus {
+  outline: 1px solid black;
+}
+
 /* project */
 
 #project-page {

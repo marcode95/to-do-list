@@ -68,6 +68,9 @@ const todoSubmitListeners = () => {
 
   projectSubmitButton.addEventListener('click', () => {
     const project = document.getElementById('projectTitleInput').value;
+    if (!project) {
+      return false;
+    }
     projects.push(project);
     setProjects();
     addProjectOptions();
