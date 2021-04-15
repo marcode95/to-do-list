@@ -182,14 +182,13 @@ h2 {
   background-color: white;
   font-size: 14px;
   border: none;
-  border-top: 2px solid black;
-  border-bottom: 2px solid black;
+  border: 2px solid black;
   width: 106px;
 }
 
 #sortOrderInput {
-  border-left: 2px solid black;
-  border-right: 2px solid black;
+  border-left: none;
+  border-right: none;
 }
 
 .prio-explanation-circles > div {
@@ -323,8 +322,8 @@ h2 {
 }
 
 #projectSortOrderInput {
-  border-left: 2px solid black;
-  border-right: 2px solid black;
+  border-left: none;
+  border-right: none;
 }
 
 /* future */

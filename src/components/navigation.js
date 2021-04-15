@@ -35,9 +35,7 @@ const navigationFunctions = () => {
 
   const projectList = document.getElementById('project-list');
   projectList.addEventListener('click', () => {
-    console.log(projectListItems);
       projectListItems.classList.toggle('display-none');
-
     });
 
   document.addEventListener('click', (e) => {

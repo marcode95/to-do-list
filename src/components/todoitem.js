@@ -9,8 +9,7 @@ const showDetailsButtonListener = (container) => {
       for (let i = 0; i < allItemDescriptionContainers.length; i++) {
         const descriptionId = allItemDescriptionContainers[i].dataset.id;
         if (descriptionId === e.target.dataset.id) {
-          allItemDescriptionContainers[i].classList.remove('display-none');
-          allItemDescriptionContainers[i].classList.add('display-inline');
+          allItemDescriptionContainers[i].classList.toggle('display-none');
         }
       }
     }
@@ -45,20 +44,31 @@ const editButtonListener = (container) => {
       const allEditForms = Array.from(allEditFormsNode);
       for (let i = 0; i < allEditForms.length; i++) {
         if (allEditForms[i].dataset.id === e.target.dataset.id) {
-          allEditForms[i].classList.remove('display-none');
-          allEditForms[i].classList.add('display-inline');
+          allEditForms[i].classList.toggle('display-none');
         }
       }
     }
   });
 };
 
+const catchInput = (id) => {
+  const allEditInputsNode = document.querySelectorAll('input.editInputClass');
+  const allEditInputs = Array.from(allEditInputsNode);
+  for (let i = 0; i < allEditInputs.length; i++) {
+    if (allEditInputs[i].dataset.id === id) {
+      const answer = allEditInputs[i].value;
+      return answer;
+    } 
+  }    
+}
+
 const editFormListener = (arr, container) => {
   container.addEventListener('click', (e) => {
     if (e.target.id === 'editSubmit') {
+      const answer = catchInput(e.target.dataset.id);
+      console.log(answer)
       const allItemDescriptionsNode = document.querySelectorAll('p.itemDescription');
       const allItemDescriptions = Array.from(allItemDescriptionsNode);
-      const answer = document.getElementById('editInput').value;
       for (let i = 0; i < allItemDescriptions.length; i++) {
         if (allItemDescriptions[i].dataset.id === e.target.dataset.id) {
           allItemDescriptions[i].innerHTML = answer;

@@ -31,6 +31,8 @@ const appendElementsDom = (arr, container, i) => {
   const editInput = document.createElement('input');
   editInput.setAttribute('placeholder', 'New Description');
   editInput.setAttribute('id', 'editInput');
+  editInput.classList.add('editInputClass')
+  editInput.setAttribute('data-id', i);
   editInput.setAttribute('type', 'text');
 
   const editSubmit = document.createElement('input');
