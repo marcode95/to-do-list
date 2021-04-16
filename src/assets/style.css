@@ -1,0 +1,499 @@
+@font-face {
+  font-family: 'MyFont';
+  src: url('../fonts/Raleway-Medium.ttf');
+  font-weight: 600;
+  font-style: normal;
+}
+
+body {
+  position: relative;
+  font-family: 'Myfont', Arial, Helvetica, sans-serif;
+  max-width: 600px;
+  min-height: 100vh;
+}
+
+section {
+  max-width: 600px;
+  margin: auto;
+}
+
+*,
+*:focus,
+*:hover {
+  outline: none;
+}
+
+.display-none {
+  display: none !important;
+}
+
+.display-inline {
+  display: inline;
+}
+
+.display-block {
+  display: block;
+}
+
+.low-prio {
+  background-color: #8a90e2;
+}
+
+.mid-prio {
+  background-color: #4a53d2;
+}
+
+.high-prio {
+  background-color: #2c34af;
+}
+
+/* navbar */
+
+nav {
+  background-color: rgb(240, 240, 240);
+}
+
+.nav-container {
+  max-width: 600px;
+  margin: auto;
+}
+
+#navigation-button {
+  font-size: 20px;
+  background-color: transparent;
+  border: none;
+}
+
+.header {
+  font-size: 30px;
+  color: #2c34af;
+  cursor: pointer;
+}
+
+.header-o {
+  color: #8a90e2;
+}
+
+.nav-fake-element {
+  width: 29.5px;
+}
+
+.navigation-button {
+  font-size: 20px;
+  color: black;
+  background-color: transparent;
+  border: none;
+}
+
+.navigation-button:hover {
+  text-decoration: none;
+  color: #4a53d2;
+  transition: 0.45s;
+}
+
+.navigation-button:focus,
+.navigation-button:hover {
+  outline: none;
+}
+
+.project-option-links {
+  width: 180px;
+  height: 40px;
+  border: none;
+  background: rgb(240, 240, 240);
+  text-align: center;
+  color: black;
+  font-size: 20px;
+}
+
+.project-option-links:hover {
+  text-decoration: none;
+  background-color: white;
+}
+
+.dropdown {
+  position: relative;
+}
+
+#project-list-items {
+  position: absolute;
+  overflow: auto;
+  z-index: 1;
+  border: 1px solid grey;
+  border-top: none;
+}
+
+/* startpage */
+
+#startpage {
+  color: black;
+  padding-top: 30px;
+  padding-bottom: 40px;
+}
+
+h2 {
+  text-align: center;
+  font-size: 35px;
+  margin-bottom: 0;
+}
+
+.form-container {
+  width: 280px;
+}
+
+.form-container > * {
+  margin-bottom: 7px;
+}
+
+.form-input {
+  width: 280px;
+  height: 40px;
+  font-size: 22px;
+  text-align: center;
+  background: none;
+  color: white;
+  background-color: #4a53d2;
+  border: 2px white;
+  border-radius: 20px;
+}
+
+.form-input::placeholder {
+  color: rgba(255, 255, 255, 0.493);
+}
+
+::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  margin-right: 10px;
+}
+
+#priorityInput,
+#projectInput {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+/* todos-page */
+
+.todos-form-container > * {
+  color: black;
+  background-color: white;
+  font-size: 14px;
+  border: none;
+  border: 2px solid black;
+  width: 106px;
+}
+
+#sortOrderInput {
+  border-left: none;
+  border-right: none;
+}
+
+.prio-explanation-circles > div {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.single-todo-item p {
+  margin-bottom: 0;
+}
+
+.prio-explanation-circles > div > p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+#todos-page {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-gap: 12px;
+  color: white;
+}
+
+.single-todo-item {
+  border-radius: 25px;
+  padding: 10px 15px 18px 15px;
+}
+
+.single-todo-item > button {
+  position: relative;
+  color: white;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  border: 2px solid white;
+  border-radius: 8px;
+  transition: all 0.2s ease-in-out;
+  margin-top: 15px;
+}
+
+.single-todo-item > button:focus,
+.single-todo-item > button:hover {
+  outline: none;
+  transform: scale(1.1);
+}
+
+.single-todo-item > button > i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.single-todo-item-title {
+  font-size: 24px;
+}
+
+#show-details-button {
+  margin-right: 8px;
+}
+
+.itemDescriptionContainer {
+  word-wrap: break-word;
+}
+
+#edit-button {
+  position: relative;
+  color: white;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  border: 2px solid white;
+  border-radius: 8px;
+  margin-right: 8px;
+  transition: all 0.2s ease-in-out;
+}
+
+#edit-button:focus,
+#edit-button:hover {
+  outline: none;
+  transform: scale(1.1);
+}
+
+#edit-button > i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+#editInput {
+  width: 140px;
+  color: white;
+  border: 2px solid white;
+  border-radius: 9px;
+  background-color: transparent;
+  margin-top: 7px;
+  padding-left: 4px;
+}
+
+#editInput::placeholder {
+  color: lightgray;
+}
+
+#editSubmit {
+  width: 70px;
+  text-align: center;
+  color: white;
+  border: 2px solid white;
+  border-radius: 9px;
+  background-color: transparent;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+#submitInput:focus,
+#projectSubmitInput:focus {
+  outline: 1px solid black;
+}
+
+/* project */
+
+#project-page {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-gap: 12px;
+  color: white;
+}
+
+#projectSortOrderInput {
+  border-left: none;
+  border-right: none;
+}
+
+/* future */
+
+#future-page {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-gap: 12px;
+  color: white;
+}
+
+/* project */
+
+@media only screen and (min-width: 1200px) {
+  body {
+    max-width: 1000px;
+  }
+
+  section {
+    max-width: 1000px;
+  }
+
+  /* navbar */
+
+  nav {
+    background-color: rgb(240, 240, 240);
+  }
+
+  .nav-container {
+    max-width: 1000px;
+    margin: auto;
+  }
+
+  #navigation-button {
+    font-size: 30px;
+  }
+
+  .header {
+    font-size: 55px;
+  }
+
+  .navigation-button {
+    font-size: 28px;
+  }
+
+  .project-option-links {
+    font-size: 25px;
+    width: 250px;
+  }
+
+  /* startpage */
+
+  #startpage {
+    color: black;
+    padding-top: 40px;
+    padding-bottom: 53px;
+  }
+
+  h2 {
+    text-align: center;
+    font-size: 45px;
+    margin-bottom: 10px;
+  }
+
+  .form-container {
+    width: 495px;
+  }
+
+  .form-container > * {
+    margin-bottom: 14px;
+  }
+
+  .form-input {
+    width: 400px;
+    height: 60px;
+    font-size: 30px;
+    text-align: center;
+    background: none;
+    color: white;
+    background-color: #4a53d2;
+    border: 2px white;
+    border-radius: 30px;
+  }
+
+  .form-input::placeholder {
+    color: rgba(255, 255, 255, 0.493);
+  }
+
+  ::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    margin-right: 10px;
+  }
+
+  #priorityInput,
+  #projectInput {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  /* todos-page */
+
+  .todos-form-container > * {
+    font-size: 20px;
+    width: 150px;
+    margin-top: 20px;
+  }
+
+  .prio-explanation-circles > div {
+    width: 80px;
+    height: 80px;
+    margin: 10px 15px 10px 0;
+  }
+
+  .prio-explanation-circles > div > p {
+    font-size: 27.5px;
+  }
+
+  #todos-page {
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    grid-gap: 22px;
+  }
+
+  .single-todo-item {
+    border-radius: 34px;
+    padding: 15px 20px 23px 20px;
+  }
+
+  .single-todo-item > button {
+    width: 45px;
+    height: 45px;
+    border-radius: 12px;
+    margin-top: 20px;
+  }
+
+  .single-todo-item > button > i {
+    font-size: 25px;
+  }
+
+  .single-todo-item-title {
+    font-size: 30px;
+  }
+
+  #show-details-button {
+    margin-right: 13px;
+  }
+
+  #edit-button {
+    width: 45px;
+    height: 45px;
+    border-radius: 12px;
+    margin-top: 20px;
+  }
+
+  #edit-button > i {
+    font-size: 25px;
+  }
+
+  /* project */
+
+  #project-page {
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    grid-gap: 22px;
+  }
+
+  /* future */
+
+  #future-page {
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    grid-gap: 22px;
+  }
+}
