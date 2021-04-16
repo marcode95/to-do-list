@@ -79,7 +79,7 @@ const todoSubmitListeners = () => {
 
   projectSubmitButton.addEventListener('click', () => {
     const project = document.getElementById('projectTitleInput').value;
-    if (!project || project.length > 12) {
+    if (!project || project.length > 15) {
       return false;
     }
     projects.push(project);
