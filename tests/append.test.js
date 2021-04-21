@@ -1,6 +1,6 @@
 import appendElements from '../src/components/append';
 
-describe('append dom elements', () => {
+describe('Append dom elements', () => {
   const arr = [1,2];
   const div = document.createElement('div');
 
@@ -13,5 +13,6 @@ describe('append dom elements', () => {
     appendElements(arr, div);
     expect(div.innerHTML).toContain('data-id="0"');
     expect(div.innerHTML).toContain('data-id="1"');
+    expect(div.innerHTML).not.toContain('data-id="2"');
   });
 });
