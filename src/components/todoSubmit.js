@@ -95,6 +95,7 @@ export {
   projects,
   toDoItem,
   today,
+  checkForDuplicates,
 };
 
 export default todoSubmitListeners;

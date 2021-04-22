@@ -1,7 +1,7 @@
 import '../assets/style.css';
 import navigationFunctions from './navigation';
 import todoSubmitListeners, { addProjectOptions } from './todoSubmit';
-import sortFunctions from './sort';
+import { sortSubmit, projectSortSubmit } from './sort';
 import { getProjects, getTodos, todoItems } from './localStorage';
 import appendElements from './append';
 
@@ -13,4 +13,5 @@ getProjects();
 addProjectOptions();
 todoSubmitListeners();
 navigationFunctions();
-sortFunctions();
+sortSubmit();
+projectSortSubmit();
