@@ -105,5 +105,5 @@ export {
   removeButtonListener,
   editButtonListener,
   editFormListener,
-  addColor
+  addColor,
 };

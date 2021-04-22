@@ -48,7 +48,7 @@ const sortSubmit = () => {
     const categoryOrder = category + order;
     const todoItemsSorted = sortBy(todoItems, categoryOrder);
     appendElements(todoItemsSorted, todosPage);
-  })
+  });
 };
 
 const projectSortSubmitButton = document.getElementById('project-sort-submit-input');
@@ -61,11 +61,11 @@ const projectSortSubmit = () => {
     const filteredItems = todoItems.filter((item) => item.project === projectPage.dataset.project);
     const projectItemsSorted = sortBy(filteredItems, categoryOrder);
     appendElements(projectItemsSorted, projectPage);
-  })
+  });
 };
 
-export { 
+export {
   sortSubmit,
   projectSortSubmit,
-  sortBy
+  sortBy,
 };

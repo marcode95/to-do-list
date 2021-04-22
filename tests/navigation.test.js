@@ -2,14 +2,10 @@ import navigationFunctions from '../src/components/navigation';
 
 describe('Test navigation functions', () => {
   test('navigationFunctions is defined', () => {
-    expect(navigationFunctions).toBeDefined;
+    expect(navigationFunctions).toStrictEqual(navigationFunctions);
   });
 
   test('navigationFunctions is working function', () => {
-    expect(typeof navigationFunctions).toEqual("function");
-  });
-
-  test('closeAllOtherSectionsExceptFor is defined', () => {
-    expect(navigationFunctions.closeAllOtherSectionsExceptFor).toBeDefined;
+    expect(typeof navigationFunctions).toEqual('function');
   });
 });

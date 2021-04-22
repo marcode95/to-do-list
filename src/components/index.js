@@ -13,5 +13,5 @@ getProjects();
 addProjectOptions();
 todoSubmitListeners();
 navigationFunctions();
-sortSubmit(); 
+sortSubmit();
 projectSortSubmit();

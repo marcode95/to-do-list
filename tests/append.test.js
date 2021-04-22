@@ -1,7 +1,7 @@
 import appendElements from '../src/components/append';
 
 describe('Append dom elements', () => {
-  const arr = [1,2];
+  const arr = [1, 2];
   const div = document.createElement('div');
 
   test('Creates single todo-item', () => {

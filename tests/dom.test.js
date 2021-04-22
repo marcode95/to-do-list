@@ -1,7 +1,7 @@
 import appendElementsDom from '../src/components/dom';
 
 describe('Create single dom elements', () => {
-  const arr = [1,2];
+  const arr = [1, 2];
   const div = document.createElement('div');
   const indexZero = 0;
   const indexOne = 1;
@@ -23,4 +23,3 @@ describe('Create single dom elements', () => {
     expect(div.innerHTML).toContain('data-id="1"');
   });
 });
-
